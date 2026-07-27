@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vivevo — how are you?</title>
+<meta name="description" content="vivevo is a one-tap journal for mood, energy, productivity, diet and relationship. Five seconds of honesty a day, a forgiving streak, and patterns you can actually see. Free on Android.">
+<meta name="theme-color" content="#117B83">
+<meta property="og:title" content="vivevo — how are you?">
+<meta property="og:description" content="A one-tap journal for the five areas that shape your day. Five seconds of honesty, once a day.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vivevo.net/">
+<link rel="icon" type="image/svg+xml" href="vivevo.svg">
+<style>
+:root{
+  --teal:#117B83;
+  --teal-dk:#0C6068;
+  --ink:#07464B;
+  --body:#41605F;
+  --mist:#DFF3F4;
+  --mist-soft:#F2FAFA;
+  --line:#D9EAEB;
+  --amber:#FFB300;
+  --mood:#117B83; --energy:#E65100; --prod:#6A1B9A; --diet:#2E7D32; --rel:#C2185B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html,body{overflow-x:hidden;overflow-x:clip}
+body{
+  background:linear-gradient(#EFF9F9,#FFFFFF 640px);
+  color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.ic{width:1em;height:1em;display:block}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- header ---------- */
+.top{display:flex;align-items:center;gap:13px;padding-block:clamp(16px,2.5vw,26px)}
+.top img{width:clamp(38px,4vw,46px);height:auto;border-radius:24%}
+.top .name{font-weight:800;font-size:clamp(1.05rem,2vw,1.25rem);letter-spacing:.01em}
+.top .toplink{margin-left:auto;color:var(--teal);text-decoration:none;font-weight:700;font-size:.9rem;letter-spacing:.06em;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:.55em 1.15em;white-space:nowrap}
+.top .toplink:hover{border-color:var(--teal);background:var(--mist-soft)}
+
+/* ---------- petal dots ---------- */
+.petals{display:inline-flex;gap:7px;align-items:center}
+.petals i{width:9px;height:9px;border-radius:50% 50% 50% 4px;display:block}
+.petals i:nth-child(1){background:var(--mood)}
+.petals i:nth-child(2){background:var(--energy)}
+.petals i:nth-child(3){background:var(--prod)}
+.petals i:nth-child(4){background:var(--diet)}
+.petals i:nth-child(5){background:var(--rel)}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(36px,6vw,96px)}
+.hero h1{font-size:clamp(2.7rem,7vw,5.2rem);font-weight:800;letter-spacing:-.025em;line-height:1.02}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.hero .petals{margin-top:clamp(14px,2vw,22px)}
+.tag{margin-top:clamp(16px,2.4vw,26px);color:var(--body);font-size:clamp(1.05rem,1.7vw,1.3rem);max-width:44ch}
+.tag b{font-weight:800}
+.tag .w-mood{color:var(--mood)} .tag .w-energy{color:var(--energy)} .tag .w-prod{color:var(--prod)} .tag .w-diet{color:var(--diet)} .tag .w-rel{color:var(--rel)}
+.pitch{margin-top:.85em;font-weight:800;font-size:clamp(1.2rem,2.2vw,1.55rem);letter-spacing:-.01em}
+.play{display:inline-flex;align-items:center;gap:.7em;margin-top:clamp(20px,2.8vw,32px);background:var(--teal);color:#fff;text-decoration:none;font-weight:800;letter-spacing:.03em;font-size:clamp(.95rem,1.4vw,1.08rem);padding:.95em 1.5em;border-radius:15px;box-shadow:0 8px 22px rgba(17,123,131,.28)}
+.play .tri{width:0;height:0;border-left:.72em solid #fff;border-top:.46em solid transparent;border-bottom:.46em solid transparent}
+.play:hover{background:var(--teal-dk)}
+.free{margin-top:14px;color:var(--body);font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+
+/* hero art: the phone */
+.hero-art{position:relative;justify-self:center;width:min(324px,100%)}
+.hero-art::before{content:"";position:absolute;inset:-16% -22%;background:radial-gradient(closest-side,rgba(133,206,211,.5),rgba(223,243,244,0) 74%);z-index:-1;pointer-events:none}
+.phone{background:#fff;border:1px solid var(--line);border-radius:38px;padding:10px;box-shadow:0 28px 70px rgba(7,70,75,.18)}
+.screen{border-radius:29px;overflow:hidden;border:1px solid #E8F2F3;background:#fff}
+.pbar{background:var(--teal);color:#fff;display:flex;align-items:center;gap:11px;padding:13px 14px;font-weight:700;font-size:15px}
+.pbar .picons{margin-left:auto;display:flex;align-items:center;gap:11px;color:#fff}
+.pbar .ic{width:17px;height:17px}
+.pbar .avatar{width:24px;height:24px;border-radius:8px;background:#80DEEA;color:var(--ink);display:grid;place-items:center}
+.pbar .avatar .ic{width:14px;height:14px}
+.ptabs{display:grid;grid-template-columns:repeat(5,1fr);background:rgba(17,123,131,.08);border-bottom:1px solid rgba(17,123,131,.25)}
+.ptabs span{display:grid;place-items:center;padding:10px 0;color:rgba(7,70,75,.42)}
+.ptabs .ic{width:21px;height:21px}
+.ptabs .on{background:rgba(17,123,131,.18);color:var(--teal)}
+.pbody{padding:13px 12px 14px}
+.pq{text-align:center;font-weight:700;font-size:14.5px;margin-bottom:11px}
+.prate{display:flex;justify-content:space-between;gap:7px}
+.prate b{flex:1;aspect-ratio:1;border-radius:12px;display:grid;place-items:center}
+.prate .ic{width:23px;height:23px}
+.prate .sel{transform:scale(1.09);border:2.5px solid var(--teal);box-shadow:0 0 12px rgba(0,137,123,.45)}
+.pnote{display:flex;gap:8px;margin-top:11px;align-items:stretch}
+.pnote span{flex:1;border:1.2px solid #C9DCDE;border-radius:10px;padding:9px 10px;color:#8AA4A6;font-size:11.5px}
+.pnote .psave{width:44px;border-radius:10px;background:var(--teal);display:grid;place-items:center;color:#fff}
+.pnote .ic{width:17px;height:17px}
+.pmonth{border-top:1px solid #E4EFF0;margin-top:13px;padding-top:9px;display:flex;align-items:center;justify-content:space-between;color:#6B8688}
+.pmonth .ic{width:15px;height:15px}
+.pmid{text-align:center;color:var(--ink)}
+.pmid .m{font-weight:800;font-size:13.5px;display:block}
+.pstreak{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#FFAD42}
+.pstreak .ic{width:13px;height:13px}
+.pstreak .snow{color:var(--teal);display:inline-flex;gap:2px}
+.pstreak .snow .ic{width:11px;height:11px}
+.pweek{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:8px;text-align:center;font-size:8.5px;font-weight:700;color:#93A9AB;letter-spacing:.04em}
+.pgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:4px}
+.pgrid .d{position:relative;aspect-ratio:1;border-radius:8px;display:grid;place-items:center;font-size:10px;font-weight:600;color:#9DB1B3;border:1px solid rgba(0,0,0,.05)}
+.pgrid .d .ic{width:15px;height:15px}
+.pgrid .blank{visibility:hidden}
+.pgrid .fz{background:rgba(17,123,131,.1);color:var(--teal)}
+.pgrid .ed{border:1.4px solid rgba(17,123,131,.5)}
+.pgrid .today{box-shadow:0 0 0 2px var(--teal)}
+.pgrid .n::after{content:"";position:absolute;top:3px;right:3px;width:4.5px;height:4.5px;border-radius:2px;background:rgba(255,255,255,.85)}
+.r1{background:#E0E0E0;color:#757575}
+.r2{background:#B2DFDB;color:#00695C}
+.r3{background:#4DB6AC;color:#E0F2F1}
+.r4{background:#00897B;color:#B2DFDB}
+.r5{background:#004D40;color:#CBDAD8}
+/* floating chips */
+.fcard{position:absolute;display:flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:9px 12px;font-size:11.5px;font-weight:600;color:var(--ink);box-shadow:0 10px 26px rgba(7,70,75,.14);max-width:200px}
+.fcard .ic{width:16px;height:16px;flex:none}
+.f-qotd{left:-13%;bottom:3.5%;color:var(--ink)}
+.f-qotd .ic{color:var(--prod)}
+.f-frozen{right:-14%;top:64%}
+.f-frozen .ic{color:var(--teal)}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(44px,6.5vw,96px)}
+.kick{display:flex;align-items:center;gap:.8em;margin-bottom:14px}
+.knum{font-weight:800;font-size:.82rem;padding:.35em .8em;border-radius:999px;background:var(--mist);color:var(--teal);letter-spacing:.08em}
+.klab{font-weight:800;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+.kick .petals{margin-left:auto}
+.k-diet .knum,.k-diet .klab{color:var(--diet)} .k-diet .knum{background:#E3F1E4}
+.k-energy .knum,.k-energy .klab{color:var(--energy)} .k-energy .knum{background:#FBEADF}
+.k-prod .knum,.k-prod .klab{color:var(--prod)} .k-prod .knum{background:#EFE4F5}
+section h2{font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.lead{margin-top:.7em;color:var(--body);font-size:clamp(1rem,1.5vw,1.15rem);max-width:62ch}
+.sechead{margin-bottom:clamp(26px,4vw,48px)}
+
+/* cards */
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 4px 18px rgba(7,70,75,.06)}
+
+/* ---------- method steps ---------- */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,34px)}
+.step .art{aspect-ratio:5/3;border-radius:16px;background:var(--mist-soft);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:16px;overflow:hidden}
+.step .num{color:var(--teal);font-weight:800;font-size:.8rem;letter-spacing:.16em}
+.step h3{font-weight:800;font-size:clamp(1.1rem,1.9vw,1.35rem);margin-top:.25em;letter-spacing:-.01em}
+.step p{color:var(--body);font-size:clamp(.95rem,1.4vw,1.03rem);margin-top:.35em;max-width:34ch}
+.mini-rate{display:flex;gap:7px}
+.mini-rate b{width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
+.mini-rate .ic{width:17px;height:17px}
+.mini-rate .sel{transform:scale(1.12);border:2px solid var(--teal);box-shadow:0 0 9px rgba(0,137,123,.45)}
+.mini-month{display:grid;grid-template-columns:repeat(7,16px);gap:4px}
+.mini-month i{width:16px;height:16px;border-radius:5px;display:grid;place-items:center}
+.mini-month .ic{width:9px;height:9px}
+.mini-month .mm-e{background:#fff;border:1px solid var(--line)}
+.mini-month .mm-f{background:rgba(17,123,131,.12);color:var(--teal)}
+
+/* ---------- areas ---------- */
+.areas-flex{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.arealogo{width:clamp(110px,13vw,160px);border-radius:22%;box-shadow:0 12px 34px rgba(7,70,75,.16)}
+.areas{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.8vw,20px)}
+.area{padding:16px 14px 15px;border-radius:16px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--c);box-shadow:0 4px 18px rgba(7,70,75,.06)}
+.area .achip{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:var(--c);background:var(--tint,#F2FAFA)}
+.area .achip .ic{width:21px;height:21px}
+.area h3{font-size:1.02rem;font-weight:800;margin-top:10px;letter-spacing:-.01em}
+.area .scale{display:flex;gap:4px;margin-top:9px}
+.area .scale i{flex:1;height:13px;border-radius:5px}
+.area p{margin-top:8px;color:var(--body);font-size:.82rem}
+.areanote{margin-top:clamp(18px,2.6vw,26px);color:var(--body);font-size:clamp(.95rem,1.4vw,1.05rem);max-width:62ch}
+
+/* ---------- streak band ---------- */
+.band{border-radius:24px;background:linear-gradient(135deg,#E5F5F5,#FFFFFF 62%);border:1px solid var(--line);padding:clamp(24px,4vw,48px);margin-bottom:clamp(24px,3.6vw,44px)}
+.band h3{font-size:clamp(1.35rem,2.8vw,2rem);font-weight:800;letter-spacing:-.015em}
+.band>p{color:var(--body);margin-top:.55em;font-size:clamp(.95rem,1.4vw,1.08rem);max-width:58ch}
+.ramp-wrap{margin-top:clamp(26px,4vw,40px);padding-top:42px;position:relative}
+.ramp{height:14px;border-radius:999px;background:linear-gradient(90deg,#FFC107 0%,#FF9800 9%,#F44336 18%,#9C27B0 36%,#2196F3 73%,#00BCD4 100%)}
+.rmark{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:1px}
+.rmark .ic{width:17px;height:17px}
+.rmark span{font-size:.72rem;font-weight:700;color:var(--body);white-space:nowrap}
+.rmark:first-of-type{transform:none}
+.rmark:last-of-type{transform:translateX(-100%)}
+.ramp-cap{margin-top:12px;color:var(--body);font-size:.88rem}
+
+/* ---------- feature tiles ---------- */
+.tiles{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.2vw,22px)}
+.tiles li{padding:18px 16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 4px 18px rgba(7,70,75,.06)}
+.tiles .tchip{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff}
+.tiles .tchip .ic{width:21px;height:21px}
+.t-teal{background:var(--teal)} .t-energy{background:var(--energy)} .t-prod{background:var(--prod)} .t-rel{background:var(--rel)} .t-diet{background:var(--diet)}
+.tiles h3{font-weight:800;font-size:1.02rem;margin-top:12px;letter-spacing:-.01em}
+.tiles p{color:var(--body);font-size:.9rem;margin-top:.35em}
+@media (prefers-reduced-motion:no-preference){
+  .tiles li,.area,.chart{transition:transform .18s ease}
+  .tiles li:hover,.area:hover,.chart:hover{transform:translateY(-4px)}
+}
+
+/* ---------- details ---------- */
+details{border:1px solid var(--line);border-radius:16px;margin-top:clamp(22px,3.4vw,38px);background:#fff;box-shadow:0 4px 18px rgba(7,70,75,.05)}
+details summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.7em;font-weight:800;letter-spacing:.01em;font-size:.98rem;padding:1em 1.2em;color:var(--ink)}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+" / "";font-weight:800;font-size:1.25em;line-height:1;width:1.1em;height:1.1em;display:grid;place-items:center;border-radius:8px;background:var(--mist);color:var(--teal);flex:none}
+details[open] summary::before{content:"\2212" / ""}
+details .dbody{padding:0 1.25em 1.25em 3.2em;color:var(--body);font-size:.97rem;max-width:72ch}
+details .dbody p+p{margin-top:.7em}
+
+/* ---------- charts ---------- */
+.charts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.2vw,22px);align-items:start}
+.chart{margin:0;padding:14px;border-radius:18px;background:#fff;border:1px solid var(--line);box-shadow:0 4px 18px rgba(7,70,75,.06)}
+.chart .cplot{border-radius:12px;overflow:hidden}
+.chart figcaption{margin-top:12px;padding-inline:2px}
+.chart figcaption b{display:block;font-size:.98rem;letter-spacing:-.01em}
+.chart figcaption span{display:block;color:var(--body);font-size:.85rem;margin-top:2px}
+.wbars{display:flex;gap:7px;align-items:flex-end;height:170px;padding:12px 10px 6px;background:var(--mist-soft);border-radius:12px}
+.wb{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.wb i{width:100%;border-radius:5px 5px 2px 2px;display:block}
+.wb span{font-size:.68rem;font-weight:700;color:var(--body)}
+.hmap{background:var(--mist-soft);border-radius:12px;padding:12px 10px}
+.hrow{display:grid;grid-template-columns:26px repeat(7,1fr);gap:4px;margin-top:4px;align-items:center}
+.hrow:first-child{margin-top:0}
+.hlab{font-size:.66rem;font-weight:700;color:var(--body);text-align:center}
+.hcell{height:25px;border-radius:5px;display:grid;place-items:center;font-size:.64rem;font-weight:700}
+.h3v{background:#4DB6AC;color:#03332E}
+.h4v{background:#00897B;color:#E8F5F3}
+.h5v{background:#004D40;color:#CBDAD8}
+.chips{margin-top:clamp(20px,3vw,30px);display:flex;flex-wrap:wrap;gap:10px}
+.chips span{display:inline-flex;align-items:center;gap:.5em;border:1px solid var(--line);background:#fff;border-radius:999px;padding:.5em 1em;font-size:.86rem;font-weight:700;color:var(--body)}
+.chips .ic{width:15px;height:15px;color:var(--teal)}
+
+/* ---------- plus band ---------- */
+.plus{display:flex;gap:16px;align-items:flex-start;border:1px solid #F3DFAE;border-radius:18px;background:linear-gradient(135deg,#FFF8E7,#FFFFFF 70%);padding:clamp(18px,2.6vw,26px);color:var(--body);font-size:.98rem}
+.plus .pchip{flex:none;width:42px;height:42px;border-radius:13px;background:var(--amber);display:grid;place-items:center;color:#fff;box-shadow:0 6px 16px rgba(255,179,0,.35)}
+.plus .pchip .ic{width:22px;height:22px}
+.plus b{color:var(--ink);font-weight:800}
+.plus .pname{font-size:1.05rem}
+.plus .pname em{font-style:normal;color:#B37D00}
+
+/* ---------- cta ---------- */
+.cta{text-align:left}
+.cta h2{font-size:clamp(2.4rem,7.5vw,5.6rem);font-weight:800;line-height:1;letter-spacing:-.03em}
+.cta h2 .hollow{color:var(--teal)}
+@supports ((-webkit-text-stroke:2px #117B83)){
+  .cta h2 .hollow{color:transparent;-webkit-text-stroke:clamp(1.3px,.22vw,2.3px) var(--teal)}
+}
+.cta .petals{margin-top:clamp(16px,2.4vw,26px)}
+.cta .play{margin-top:clamp(20px,3vw,34px)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding-block:clamp(26px,3.8vw,44px);margin-top:clamp(28px,4.5vw,60px);background:var(--mist-soft)}
+footer .frow{display:flex;flex-wrap:wrap;align-items:center;gap:16px clamp(18px,3vw,34px)}
+footer img{width:32px;height:auto;border-radius:24%}
+footer a{color:var(--body);text-decoration:none;font-size:.92rem;display:inline-block;padding-block:.5em}
+footer a:hover{color:var(--ink);text-decoration:underline}
+footer .copy{margin-left:auto;color:var(--body);font-size:.92rem}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;padding-block:clamp(24px,5vw,52px)}
+  .hero-art{margin-top:10px}
+  .f-qotd{left:-4%}
+  .f-frozen{right:-5%}
+  .steps{grid-template-columns:1fr;gap:20px}
+  .step{display:grid;grid-template-columns:128px 1fr;gap:16px;align-items:center}
+  .step .art{aspect-ratio:1;margin-bottom:0;padding:6px}
+  .mini-rate b{width:20px;height:20px;border-radius:7px}
+  .mini-rate{gap:4px}
+  .mini-rate .ic{width:13px;height:13px}
+  .mini-month{grid-template-columns:repeat(7,11px);gap:3px}
+  .mini-month i{width:11px;height:11px;border-radius:4px}
+  .step .mini-trend{width:88px}
+  .areas-flex{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .areas{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));width:100%}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .charts{grid-template-columns:1fr}
+  .kick .petals{display:none}
+}
+@media (max-width:440px){
+  .top .toplink{display:none}
+  .tiles{grid-template-columns:1fr}
+  .fcard{display:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-rain" viewBox="0 0 24 24"><path fill="currentColor" d="M7.2 14.9a4.2 4.2 0 0 1 .5-8.36A5.3 5.3 0 0 1 17.9 8a3.65 3.65 0 0 1-.6 6.9z"/><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"><path d="M9.1 17.4l-.85 2.3"/><path d="M13.6 17.4l-.85 2.3"/></g></symbol>
+<symbol id="i-sad" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="9.1" cy="10.3" r="1.2" fill="currentColor"/><circle cx="14.9" cy="10.3" r="1.2" fill="currentColor"/><path d="M8.7 16.5c2-2.4 4.6-2.4 6.6 0" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+<symbol id="i-meh" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="9.1" cy="10.3" r="1.2" fill="currentColor"/><circle cx="14.9" cy="10.3" r="1.2" fill="currentColor"/><path d="M8.8 15.7h6.4" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+<symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="9.1" cy="10.3" r="1.2" fill="currentColor"/><circle cx="14.9" cy="10.3" r="1.2" fill="currentColor"/><path d="M8.7 14.4c2 2.4 4.6 2.4 6.6 0" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+<symbol id="i-confetti" viewBox="0 0 24 24"><path fill="currentColor" d="M3.6 20.9 8.5 7.2l8.3 8.3z"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"><path d="M14.6 5.5l.5-2.4"/><path d="M18.4 9.4l2.4-.5"/><path d="M16.8 4.9l1.9-1.9"/></g><circle cx="21" cy="13.4" r="1.1" fill="currentColor"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.3c.9 4-4 5.7-4 10a5 5 0 0 0 10 0c0-2.1-1-3.9-2.2-5.3-.3 1.1-1 2-2 2.4 0-2.7-.3-5.2-1.8-7.1z"/></symbol>
+<symbol id="i-snow" viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 2.9v18.2"/><path d="M4.1 7.4l15.8 9.2"/><path d="M19.9 7.4L4.1 16.6"/></g></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.2 2 5.6 13.4h4.5L9.8 22l8.6-11.9h-4.8z"/></symbol>
+<symbol id="i-trend" viewBox="0 0 24 24"><path fill="currentColor" d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></symbol>
+<symbol id="i-food" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.6l5 5L19.5 7.2" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path fill="currentColor" d="M4 11h3.2v9H4zM10.4 4h3.2v16h-3.2zM16.8 8H20v12h-3.2z"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M3.5 6.2l1.6 1.6 3-3"/><path d="M3.5 12.7l1.6 1.6 3-3"/><path d="M3.5 19.2l1.6 1.6 3-3"/><path d="M11.5 6.6H21"/><path d="M11.5 13.1H21"/><path d="M11.5 19.6H21"/></g></symbol>
+<symbol id="i-dots" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="19" r="1.7" fill="currentColor"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path fill="currentColor" d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5a6 6 0 0 0-5-5.91V4a1 1 0 1 0-2 0v1.09A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z"/></symbol>
+<symbol id="i-bulb" viewBox="0 0 24 24"><path fill="currentColor" d="M9.3 21h5.4v-1.6H9.3zM12 2a7 7 0 0 0-4 12.74c.63.44 1 1.16 1 1.93v.33h6v-.33c0-.77.37-1.49 1-1.93A7 7 0 0 0 12 2z"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2-5.6 3.2 1.3-6.2L3 9.1l6.3-.7z"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path fill="currentColor" d="M19 9.5h-4v-6H9v6H5l7 7zM5 18.5v2h14v-2z"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-3.3 0-8 1.7-8 5v1.5h16V19c0-3.3-4.7-5-8-5z"/></symbol>
+<symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M14.5 5.5 8 12l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9.5 5.5 16 12l-6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-cloudsync" viewBox="0 0 24 24"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4 7.49 7.49 0 0 0 5.35 8.04 5.994 5.994 0 0 0 6 20h13a5 5 0 0 0 .35-9.96z"/></symbol>
+</defs></svg>
+
+<header class="wrap top">
+  <img src="vivevo.svg" alt="" width="46" height="46">
+  <span class="name">vivevo</span>
+  <a class="toplink" href="https://play.google.com/store/apps/details?id=io.a51.vivevo">Google&nbsp;Play</a>
+</header>
+
+<main>
+
+  <section class="wrap hero" aria-label="Introduction">
+    <div>
+      <h1>How <em>are</em> you?</h1>
+      <span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <p class="tag">vivevo is a one-tap journal for the five areas that shape your day —
+        <b class="w-mood">mood</b>, <b class="w-energy">energy</b>, <b class="w-prod">productivity</b>,
+        <b class="w-diet">diet</b> and <b class="w-rel">relationship</b>.</p>
+      <p class="pitch">Five seconds of honesty a day.</p>
+      <a class="play" href="https://play.google.com/store/apps/details?id=io.a51.vivevo"><span class="tri" aria-hidden="true"></span>Get it on Google&nbsp;Play</a>
+      <p class="free">Free &middot; Android &middot; No ads &middot; English &amp; Deutsch</p>
+    </div>
+
+    <figure class="hero-art" role="img" aria-label="The vivevo home screen: the question ‘How are you feeling today?’ above five rating tiles from rain cloud to confetti, and a July calendar filled with colored day tiles, a 25-day streak flame and two streak freezes.">
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="pbar">vivevo
+            <span class="picons">
+              <svg class="ic"><use href="#i-list"/></svg>
+              <svg class="ic"><use href="#i-chart"/></svg>
+              <svg class="ic"><use href="#i-dots"/></svg>
+              <span class="avatar"><svg class="ic"><use href="#i-user"/></svg></span>
+            </span>
+          </div>
+          <div class="ptabs">
+            <span class="on"><svg class="ic"><use href="#i-smile"/></svg></span>
+            <span><svg class="ic"><use href="#i-bolt"/></svg></span>
+            <span><svg class="ic"><use href="#i-trend"/></svg></span>
+            <span><svg class="ic"><use href="#i-food"/></svg></span>
+            <span><svg class="ic"><use href="#i-heart"/></svg></span>
+          </div>
+          <div class="pbody">
+            <p class="pq">How are you feeling today?</p>
+            <div class="prate">
+              <b class="r1"><svg class="ic"><use href="#i-rain"/></svg></b>
+              <b class="r2"><svg class="ic"><use href="#i-sad"/></svg></b>
+              <b class="r3"><svg class="ic"><use href="#i-meh"/></svg></b>
+              <b class="r4 sel"><svg class="ic"><use href="#i-smile"/></svg></b>
+              <b class="r5"><svg class="ic"><use href="#i-confetti"/></svg></b>
+            </div>
+            <div class="pnote"><span>Note (optional)</span><span class="psave"><svg class="ic"><use href="#i-check"/></svg></span></div>
+            <div class="pmonth">
+              <svg class="ic"><use href="#i-chev-l"/></svg>
+              <span class="pmid">
+                <span class="m">July 2026</span>
+                <span class="pstreak"><svg class="ic"><use href="#i-flame"/></svg>25 days
+                  <span class="snow"><svg class="ic"><use href="#i-snow"/></svg><svg class="ic"><use href="#i-snow"/></svg></span>
+                </span>
+              </span>
+              <svg class="ic"><use href="#i-chev-r"/></svg>
+            </div>
+            <div class="pweek"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+            <div class="pgrid">
+              <i class="d blank"></i><i class="d blank"></i>
+              <i class="d r3"><svg class="ic"><use href="#i-meh"/></svg></i>
+              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d r2"><svg class="ic"><use href="#i-sad"/></svg></i>
+              <i class="d r5"><svg class="ic"><use href="#i-confetti"/></svg></i>
+              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d r3"><svg class="ic"><use href="#i-meh"/></svg></i>
+              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d r5 n"><svg class="ic"><use href="#i-confetti"/></svg></i>
+              <i class="d r5"><svg class="ic"><use href="#i-confetti"/></svg></i>
+              <i class="d r3"><svg class="ic"><use href="#i-meh"/></svg></i>
+              <i class="d r2"><svg class="ic"><use href="#i-sad"/></svg></i>
+              <i class="d fz"><svg class="ic"><use href="#i-snow"/></svg></i>
+              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d r3"><svg class="ic"><use href="#i-meh"/></svg></i>
+              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d r5"><svg class="ic"><use href="#i-confetti"/></svg></i>
+              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d r4 ed"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d r5 ed n"><svg class="ic"><use href="#i-confetti"/></svg></i>
+              <i class="d r3 ed"><svg class="ic"><use href="#i-meh"/></svg></i>
+              <i class="d r4 ed"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d r4 ed"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d r5 ed"><svg class="ic"><use href="#i-confetti"/></svg></i>
+              <i class="d r4 ed today"><svg class="ic"><use href="#i-smile"/></svg></i>
+              <i class="d">27</i><i class="d">28</i><i class="d">29</i><i class="d">30</i><i class="d">31</i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="fcard f-qotd" aria-hidden="true"><svg class="ic"><use href="#i-bulb"/></svg>“What made you smile today?”</span>
+      <span class="fcard f-frozen" aria-hidden="true"><svg class="ic"><use href="#i-snow"/></svg>Missed day covered — streak safe</span>
+    </figure>
+  </section>
+
+  <section class="wrap" aria-labelledby="k-method">
+    <div class="sechead">
+      <div class="kick"><span class="knum">01</span><span class="klab" id="k-method">The method</span><span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <h2>One honest tap a day.</h2>
+      <p class="lead">No numbers to type, no essays to write. You pick the picture that matches your day — and that's it.</p>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <div class="art" aria-hidden="true">
+          <div class="mini-rate">
+            <b class="r1"><svg class="ic"><use href="#i-rain"/></svg></b>
+            <b class="r2"><svg class="ic"><use href="#i-sad"/></svg></b>
+            <b class="r3"><svg class="ic"><use href="#i-meh"/></svg></b>
+            <b class="r4 sel"><svg class="ic"><use href="#i-smile"/></svg></b>
+            <b class="r5"><svg class="ic"><use href="#i-confetti"/></svg></b>
+          </div>
+        </div>
+        <div>
+          <span class="num">STEP 1</span>
+          <h3>Answer one question</h3>
+          <p>How was today? Tap one of five. Add a short note if the day deserves it.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="art" aria-hidden="true">
+          <div class="mini-month">
+            <i class="r3"></i><i class="r4"></i><i class="r4"></i><i class="r2"></i><i class="r5"></i><i class="r4"></i><i class="r5"></i>
+            <i class="r4"></i><i class="mm-f"><svg class="ic"><use href="#i-snow"/></svg></i><i class="r3"></i><i class="r4"></i><i class="r5"></i><i class="r4"></i><i class="r4"></i>
+            <i class="r5"></i><i class="r4"></i><i class="r3"></i><i class="r4"></i><i class="r5"></i><i class="mm-e"></i><i class="mm-e"></i>
+          </div>
+        </div>
+        <div>
+          <span class="num">STEP 2</span>
+          <h3>Watch the month fill in</h3>
+          <p>Every day becomes a colored tile. Streaks grow — and forgive the odd miss.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="art" aria-hidden="true">
+          <svg class="mini-trend" width="130" height="70" viewBox="0 0 130 70">
+            <path d="M8 46 C22 38,30 26,44 28 C58 30,62 48,76 46 C90 44,98 22,112 18" fill="none" stroke="#117B83" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="112" cy="18" r="4" fill="#117B83" stroke="#fff" stroke-width="2"/>
+          </svg>
+        </div>
+        <div>
+          <span class="num">STEP 3</span>
+          <h3>See the patterns</h3>
+          <p>Weeks later, the picture is there: what lifts your days, and what drains them.</p>
+        </div>
+      </li>
+    </ol>
+    <details>
+      <summary>Why just one tap?</summary>
+      <div class="dbody">
+        <p>Because the habit is the hard part. A five-second check-in survives busy weeks, sick days and holidays — and an honest rating every day beats a detailed entry once a month. Patterns only appear when the data keeps coming.</p>
+        <p>When you have more to say, there's a note. When you don't, a tap is a complete entry.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="wrap" aria-labelledby="k-areas">
+    <div class="sechead">
+      <div class="kick k-diet"><span class="knum">02</span><span class="klab" id="k-areas">Five areas</span><span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <h2>Five petals, five areas.</h2>
+      <p class="lead">Look closely at the logo — its five petals are the five things vivevo tracks. Each area has its own five-step scale, drawn in pictures instead of numbers.</p>
+    </div>
+    <div class="areas-flex">
+      <img class="arealogo" src="vivevo.svg" alt="The vivevo logo: a stylized plant whose five petals carry the five tracker colors.">
+      <ul class="areas">
+        <li class="area" style="--c:#117B83;--tint:#E5F1F2">
+          <span class="achip" aria-hidden="true"><svg class="ic"><use href="#i-smile"/></svg></span>
+          <h3>Mood</h3>
+          <div class="scale" aria-hidden="true"><i style="background:#E0E0E0"></i><i style="background:#B2DFDB"></i><i style="background:#4DB6AC"></i><i style="background:#00897B"></i><i style="background:#004D40"></i></div>
+          <p>rain cloud → confetti</p>
+        </li>
+        <li class="area" style="--c:#E65100;--tint:#FCEDE2">
+          <span class="achip" aria-hidden="true"><svg class="ic"><use href="#i-bolt"/></svg></span>
+          <h3>Energy</h3>
+          <div class="scale" aria-hidden="true"><i style="background:#E1E2E6"></i><i style="background:#FFE0B2"></i><i style="background:#FFB74D"></i><i style="background:#FF8F00"></i><i style="background:#9E3500"></i></div>
+          <p>empty battery → charging</p>
+        </li>
+        <li class="area" style="--c:#6A1B9A;--tint:#F0E6F5">
+          <span class="achip" aria-hidden="true"><svg class="ic"><use href="#i-trend"/></svg></span>
+          <h3>Productivity</h3>
+          <div class="scale" aria-hidden="true"><i style="background:#E0E0E0"></i><i style="background:#D1C4E9"></i><i style="background:#BA68C8"></i><i style="background:#8E24AA"></i><i style="background:#4A148C"></i></div>
+          <p>paused → rocket launch</p>
+        </li>
+        <li class="area" style="--c:#2E7D32;--tint:#E8F2E8">
+          <span class="achip" aria-hidden="true"><svg class="ic"><use href="#i-food"/></svg></span>
+          <h3>Diet</h3>
+          <div class="scale" aria-hidden="true"><i style="background:#EF5350"></i><i style="background:#FFB74D"></i><i style="background:#FFEB3B"></i><i style="background:#9CCC65"></i><i style="background:#4CAF50"></i></div>
+          <p>cake → carrot</p>
+        </li>
+        <li class="area" style="--c:#C2185B;--tint:#F9E7EE">
+          <span class="achip" aria-hidden="true"><svg class="ic"><use href="#i-heart"/></svg></span>
+          <h3>Relationship</h3>
+          <div class="scale" aria-hidden="true"><i style="background:#BDBDBD"></i><i style="background:#F5E1E9"></i><i style="background:#F48FB1"></i><i style="background:#EC407A"></i><i style="background:#C2185B"></i></div>
+          <p>heartbreak → whole heart</p>
+        </li>
+      </ul>
+    </div>
+    <p class="areanote">Track one area or all five — each keeps its own streak, calendar and charts, and the whole app recolors to the area you're in.</p>
+  </section>
+
+  <section class="wrap" aria-labelledby="k-streak">
+    <div class="sechead">
+      <div class="kick k-energy"><span class="knum">03</span><span class="klab" id="k-streak">Staying with it</span><span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <h2>A streak that forgives.</h2>
+      <p class="lead">Consistency should feel encouraging, not fragile. vivevo is built to keep you going — gently.</p>
+    </div>
+    <div class="band">
+      <h3>The flame never stops evolving.</h3>
+      <p>Most streak counters are just a number. vivevo's flame keeps shifting color for five hundred days — and starts to glow from day 30.</p>
+      <div class="ramp-wrap" role="img" aria-label="The streak flame's color journey: yellow at day 1, red at day 90, purple at day 180, blue at day 365, cyan at day 500 and beyond.">
+        <span class="rmark" style="left:0" aria-hidden="true"><svg class="ic" style="color:#FFC107"><use href="#i-flame"/></svg><span>day 1</span></span>
+        <span class="rmark" style="left:18%" aria-hidden="true"><svg class="ic" style="color:#F44336"><use href="#i-flame"/></svg><span>90</span></span>
+        <span class="rmark" style="left:36%" aria-hidden="true"><svg class="ic" style="color:#9C27B0"><use href="#i-flame"/></svg><span>180</span></span>
+        <span class="rmark" style="left:73%" aria-hidden="true"><svg class="ic" style="color:#2196F3"><use href="#i-flame"/></svg><span>365</span></span>
+        <span class="rmark" style="left:100%" aria-hidden="true"><svg class="ic" style="color:#00BCD4"><use href="#i-flame"/></svg><span>500+</span></span>
+        <div class="ramp"></div>
+      </div>
+      <p class="ramp-cap">And a day you haven't rated yet never breaks the streak — the day gets to finish first.</p>
+    </div>
+    <ul class="tiles">
+      <li>
+        <span class="tchip t-teal" aria-hidden="true"><svg class="ic"><use href="#i-snow"/></svg></span>
+        <h3>Automatic streak freezes</h3>
+        <p>Miss a day and vivevo spends a freeze for you — no button to press. They refill every month.</p>
+      </li>
+      <li>
+        <span class="tchip t-energy" aria-hidden="true"><svg class="ic"><use href="#i-bell"/></svg></span>
+        <h3>Reminders with manners</h3>
+        <p>One daily nudge, only if you haven't checked in yet — and it quietly persists if you drift away.</p>
+      </li>
+      <li>
+        <span class="tchip t-prod" aria-hidden="true"><svg class="ic"><use href="#i-bulb"/></svg></span>
+        <h3>Question of the day</h3>
+        <p>A small reflection that knows the clock: “What <em>will</em> make you smile today?” becomes “What <em>made</em> you smile?” by evening.</p>
+      </li>
+      <li>
+        <span class="tchip t-rel" aria-hidden="true"><svg class="ic"><use href="#i-list"/></svg></span>
+        <h3>Quick check-in</h3>
+        <p>All five areas on one screen — straight from the reminder notification.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="wrap" aria-labelledby="k-insight">
+    <div class="sechead">
+      <div class="kick k-prod"><span class="knum">04</span><span class="klab" id="k-insight">The payoff</span><span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <h2>Patterns you can actually see.</h2>
+      <p class="lead">Six charts, any date range, one question: what actually moves your days?</p>
+    </div>
+    <div class="charts">
+      <figure class="chart">
+        <div class="cplot" role="img" aria-label="Trend chart: a 7-day moving average line rising over a background shaded with the five mood colors.">
+          <svg viewBox="0 0 320 190" width="100%" style="display:block">
+            <defs>
+              <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#004D40" stop-opacity=".45"/>
+                <stop offset=".25" stop-color="#00897B" stop-opacity=".45"/>
+                <stop offset=".5" stop-color="#4DB6AC" stop-opacity=".45"/>
+                <stop offset=".75" stop-color="#B2DFDB" stop-opacity=".45"/>
+                <stop offset="1" stop-color="#E0E0E0" stop-opacity=".45"/>
+              </linearGradient>
+            </defs>
+            <rect x="40" y="12" width="272" height="150" rx="9" fill="url(#tg)"/>
+            <g stroke="#fff" stroke-opacity=".55" stroke-width="1">
+              <line x1="40" y1="42" x2="312" y2="42"/><line x1="40" y1="72" x2="312" y2="72"/>
+              <line x1="40" y1="102" x2="312" y2="102"/><line x1="40" y1="132" x2="312" y2="132"/>
+            </g>
+            <g style="color:#7F9799">
+              <svg x="12" y="19" width="16" height="16" viewBox="0 0 24 24"><use href="#i-confetti"/></svg>
+              <svg x="12" y="49" width="16" height="16" viewBox="0 0 24 24"><use href="#i-smile"/></svg>
+              <svg x="12" y="79" width="16" height="16" viewBox="0 0 24 24"><use href="#i-meh"/></svg>
+              <svg x="12" y="109" width="16" height="16" viewBox="0 0 24 24"><use href="#i-sad"/></svg>
+              <svg x="12" y="139" width="16" height="16" viewBox="0 0 24 24"><use href="#i-rain"/></svg>
+            </g>
+            <path d="M48 88 C60 76,72 62,86 60 C100 58,110 88,124 96" fill="none" stroke="#117B83" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M124 96 C138 104,148 118,162 118 C176 118,186 96,200 86" fill="none" stroke="#117B83" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="5 5"/>
+            <path d="M200 86 C214 76,224 56,238 50 C252 44,258 60,272 60 C286 60,296 44,304 36" fill="none" stroke="#117B83" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="304" cy="36" r="4.5" fill="#117B83" stroke="#fff" stroke-width="2"/>
+          </svg>
+        </div>
+        <figcaption><b>Trend</b><span>A 7-day average of your ratings — gaps get dotted lines, not lies.</span></figcaption>
+      </figure>
+      <figure class="chart">
+        <div class="cplot wbars" role="img" aria-label="Weekday average bar chart: Monday through Sunday, with Friday, Saturday and Sunday clearly higher.">
+          <span class="wb"><i style="height:62%;background:#4DB6AC"></i><span>Mon</span></span>
+          <span class="wb"><i style="height:68%;background:#4DB6AC"></i><span>Tue</span></span>
+          <span class="wb"><i style="height:60%;background:#4DB6AC"></i><span>Wed</span></span>
+          <span class="wb"><i style="height:72%;background:#00897B"></i><span>Thu</span></span>
+          <span class="wb"><i style="height:84%;background:#00897B"></i><span>Fri</span></span>
+          <span class="wb"><i style="height:92%;background:#004D40"></i><span>Sat</span></span>
+          <span class="wb"><i style="height:80%;background:#00897B"></i><span>Sun</span></span>
+        </div>
+        <figcaption><b>Weekday average</b><span>Which day of the week treats you best.</span></figcaption>
+      </figure>
+      <figure class="chart">
+        <div class="cplot hmap" role="img" aria-label="Prototypical month heatmap: five week rows by seven weekday columns, showing higher averages toward weekends.">
+          <div class="hrow"><span class="hlab"></span><span class="hlab">M</span><span class="hlab">T</span><span class="hlab">W</span><span class="hlab">T</span><span class="hlab">F</span><span class="hlab">S</span><span class="hlab">S</span></div>
+          <div class="hrow"><span class="hlab">W1</span><span class="hcell h3v">3.2</span><span class="hcell h3v">3.4</span><span class="hcell h3v">3.1</span><span class="hcell h3v">3.3</span><span class="hcell h4v">3.9</span><span class="hcell h4v">4.4</span><span class="hcell h4v">4.1</span></div>
+          <div class="hrow"><span class="hlab">W2</span><span class="hcell h3v">3.0</span><span class="hcell h3v">3.2</span><span class="hcell h3v">3.3</span><span class="hcell h4v">3.5</span><span class="hcell h4v">4.0</span><span class="hcell h5v">4.6</span><span class="hcell h4v">4.2</span></div>
+          <div class="hrow"><span class="hlab">W3</span><span class="hcell h3v">2.8</span><span class="hcell h3v">3.1</span><span class="hcell h3v">3.0</span><span class="hcell h3v">3.4</span><span class="hcell h4v">3.8</span><span class="hcell h4v">4.3</span><span class="hcell h4v">4.0</span></div>
+          <div class="hrow"><span class="hlab">W4</span><span class="hcell h3v">3.1</span><span class="hcell h3v">3.3</span><span class="hcell h3v">3.4</span><span class="hcell h4v">3.6</span><span class="hcell h4v">4.1</span><span class="hcell h5v">4.7</span><span class="hcell h4v">4.3</span></div>
+          <div class="hrow"><span class="hlab">W5</span><span class="hcell h3v">3.3</span><span class="hcell h4v">3.5</span><span class="hcell h3v">3.2</span><span class="hcell h4v">3.7</span><span class="hcell h4v">4.2</span><span class="hcell h5v">4.5</span><span class="hcell h4v">4.1</span></div>
+        </div>
+        <figcaption><b>Prototypical month</b><span>All your months overlaid — the rhythm hiding inside a month.</span></figcaption>
+      </figure>
+    </div>
+    <div class="chips" aria-label="More about your data">
+      <span><svg class="ic"><use href="#i-user"/></svg>Works without an account</span>
+      <span><svg class="ic"><use href="#i-cloudsync"/></svg>Google sign-in syncs across devices</span>
+      <span><svg class="ic"><use href="#i-download"/></svg>CSV export</span>
+      <span><svg class="ic"><use href="#i-check"/></svg>No ads, ever</span>
+    </div>
+    <details>
+      <summary>Your data, your rules</summary>
+      <div class="dbody">
+        <p>vivevo works fully as a guest — everything stays on your device, streaks and freezes included. Sign in with Google and your entries are backed up and synced live across devices, with offline changes queued and merged safely.</p>
+        <p>Your data remains yours: export everything as CSV, or delete your account and all of it from inside the app, anytime.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="wrap" aria-label="vivevo plus" style="padding-block:0">
+    <div class="plus">
+      <span class="pchip" aria-hidden="true"><svg class="ic"><use href="#i-star"/></svg></span>
+      <p><b class="pname">vivevo<em>+</em></b> — all five areas at once, your full history, three streak freezes a month, longer notes and CSV export. Monthly or yearly.<br>
+      The free app is not a demo: one area at a time, 28 days of history and a monthly freeze — free forever.</p>
+    </div>
+  </section>
+
+  <section class="wrap cta" aria-label="Download">
+    <h2>How are you?<br><span class="hollow">Find out — daily.</span></h2>
+    <span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><br>
+    <a class="play" href="https://play.google.com/store/apps/details?id=io.a51.vivevo"><span class="tri" aria-hidden="true"></span>Get it on Google&nbsp;Play</a>
+    <p class="free">Free &middot; Android &middot; No ads &middot; English &amp; Deutsch</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <img src="vivevo.svg" alt="vivevo logo" width="32" height="32">
+    <a href="privacy.html">Privacy</a>
+    <a href="data_deletion.html">Data deletion</a>
+    <a href="mailto:hi@vivevo.net">hi@vivevo.net</a>
+    <span class="copy">© <a href="https://a51.io">A51</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
