@@ -26,6 +26,12 @@
       justify-content: center;
       margin-bottom: 18px;
     }
+    .updated {
+      color: #d7f2f4;
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: -8px;
+    }
     .box {
       background: #e8fbfd;
       border: 1.5px solid #07464b;
@@ -38,9 +44,26 @@
       line-height: 1.6;
       margin-bottom: 16px;
     }
+    ul {
+      line-height: 1.6;
+      margin: 0 0 16px 0;
+      padding-left: 22px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
     a {
       color: #07464b;
       text-decoration: underline;
+    }
+    @media (max-width: 690px) {
+      body {
+        margin: 12px;
+        padding: 16px 14px;
+      }
+      .box {
+        padding: 14px 3vw;
+      }
     }
   </style>
 </head>
@@ -49,33 +72,105 @@
     <img src="vivevo.svg" alt="vivevo logo" style="width:90px; height:90px;" />
   </div>
   <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 27 July 2026</p>
   <div class="box">
-    <p><strong>Data We Collect</strong><br />
-    We only collect your email address for logging in and data about your completed pomodoros and habits within the app. We do not collect any other personal data directly, such as name or location.</p>
+    <p>vivevo is a private journal. What you write in it is yours, and this
+    policy describes exactly what leaves your device and what does not.</p>
 
-    <p><strong>Purpose of Data Collection</strong><br />
-    Your data is used solely to provide you with statistics and tracking features within the app.</p>
+    <p><strong>Using vivevo without an account</strong><br />
+    You can use vivevo without signing in. In this mode everything you record
+    stays on your device only. Nothing is sent to us or to any server, and we
+    have no way to see it. If you uninstall the app without signing in, that
+    data is gone.</p>
 
-    <p><strong>Data Storage and Security</strong><br />
-    We store your data securely on Google’s Firebase platform. Firebase Analytics (Google Analytics) automatically collects device information (such as device model, operating system, and app version) and coarse location information (based on IP address) to help us understand app usage and improve the app experience. This data is aggregated and anonymized.</p>
+    <p><strong>What we store when you sign in</strong><br />
+    Signing in is optional and uses Google Sign-In. If you sign in, Google
+    provides us with your email address, your display name and your profile
+    picture, and the following is stored in your account so it can sync between
+    your devices and be restored if you change phone:</p>
+    <ul>
+      <li>The ratings you record (a value from 1 to 5, per day, per tracker).</li>
+      <li>Any short note you attach to a day. Notes are limited to 100
+      characters. This is the most personal thing vivevo stores, and it is
+      never used for anything except showing it back to you.</li>
+      <li>Which trackers you have switched on, and your streak information.</li>
+    </ul>
 
-    <p><strong>Data Retention</strong><br />
-    Your user data is retained as long as necessary to provide app functionality and features. You may request deletion of your data at any time.</p>
+    <p>Reminder settings and the times you choose are kept on your device.
+    Reminders are scheduled locally by your phone; we are not involved in
+    sending them and we do not know whether you act on them.</p>
 
-    <p><strong>Data Sharing</strong><br />
-    We do not share your personal data with any third parties other than Google as part of Firebase services.</p>
+    <p><strong>What we never collect</strong><br />
+    vivevo does not use Google Analytics, Firebase Analytics, advertising SDKs,
+    or any tracking or profiling technology. We do not collect your location, we
+    do not build a profile of you, we do not use your entries to train anything,
+    and we do not sell or share your data with anyone for advertising. There are
+    no cookies in the app.</p>
 
-    <p><strong>User Groups</strong><br />
-    All user groups are treated equally. We do not apply different rules or collect different data based on age or other characteristics.</p>
+    <p><strong>Anonymous error reports</strong><br />
+    So that we can find and fix crashes, vivevo can send anonymous technical
+    error reports through Google Firebase Crashlytics. These contain the
+    technical details of the failure, your device model, its operating system
+    version and the app version.</p>
+    <ul>
+      <li>They never contain your notes, your name or your email address.</li>
+      <li>They are not linked to your account. No account identifier is
+      attached, and reports are grouped only by a random identifier created for
+      that installation, which is discarded when you uninstall the app.</li>
+      <li>Technical messages are automatically stripped of identifying
+      information (such as account identifiers, email addresses and links)
+      before they leave your device.</li>
+      <li>You can turn this off at any time in <em>Settings &rarr; Privacy</em>.
+      Turning it off also deletes any report still waiting on your device.</li>
+    </ul>
 
-    <p><strong>Cookies and Tracking Technologies</strong><br />
-    We do not use cookies or tracking technologies beyond Firebase Analytics.</p>
+    <p><strong>Subscriptions and promo codes</strong><br />
+    vivevo+ is billed by Google Play. Payment is handled entirely by Google — we
+    never see your card details. We store only what is needed to know whether
+    your subscription is active: which plan it came from, when it needs
+    re-checking, and the purchase identifier Google gives us.</p>
 
-    <p><strong>Your Rights</strong><br />
-    You may request deletion of your account and data at any time. Please see our <a href="data_deletion.html">Data Deletion Policy</a> for instructions.</p>
+    <p>If you redeem a promo code, we permanently keep a small record that the
+    code was redeemed by your account, containing the code and the date. This
+    record is what stops a code being used more than once, so it is deliberately
+    kept even after account deletion. It contains no other information about
+    you.</p>
+
+    <p><strong>Where your data is stored</strong><br />
+    Data for signed-in users is stored using Google Firebase (Cloud Firestore
+    and Firebase Authentication). Google processes it on our behalf as our
+    service provider. A copy is also cached on your device so the app works
+    offline.</p>
+
+    <p><strong>Deleting your data</strong><br />
+    You can delete your account and its data from inside the app, under
+    <em>Settings &rarr; Delete account</em>. This removes your entries and your
+    sign-in account, and clears the copy cached on your device. You can also
+    request deletion by email — see our
+    <a href="data_deletion.html">Data Deletion Policy</a>. The promo redemption
+    record described above is the only thing retained.</p>
+
+    <p><strong>Data retention</strong><br />
+    Your data is kept for as long as your account exists. Backups may persist
+    for a short period after deletion for operational reasons.</p>
+
+    <p><strong>Your rights</strong><br />
+    You can access your data at any time in the app, export it as a CSV file,
+    and delete it. If you are in the EU or UK, you also have the right to
+    request a copy of your data, to have it corrected, and to object to how it
+    is processed. Contact us at the address below.</p>
+
+    <p><strong>Children</strong><br />
+    vivevo is not directed at children under 13 and we do not knowingly collect
+    data from them.</p>
+
+    <p><strong>Changes to this policy</strong><br />
+    If we change what vivevo collects, we will update this page and change the
+    date at the top.</p>
 
     <p><strong>Contact</strong><br />
-    For questions, email <a href="mailto:hi@vivevo.net">hi@vivevo.net</a>.</p>
+    For questions or requests, email
+    <a href="mailto:hi@vivevo.net">hi@vivevo.net</a>.</p>
   </div>
 </body>
 </html>
