@@ -247,6 +247,18 @@ details .dbody p+p{margin-top:.7em}
 @supports ((-webkit-text-stroke:2px #117B83)){
   .cta h2 .hollow{color:transparent;-webkit-text-stroke:clamp(1.3px,.22vw,2.3px) var(--teal)}
 }
+/* A centred stroke over a transparent fill draws both edges of every stem, so
+   the inner edges meet and cross inside letters whose parts join -- the F bar,
+   the a/d/o bowls, the y tail. That tangle is what showed on Android Chrome.
+   Painting the stroke first and filling the glyph on top hides the inner half,
+   leaving one clean outline per letter; the width doubles because only the
+   outer half now shows. The fill is a literal #fff, not a background variable:
+   the body gradient has already resolved to solid #FFFFFF well before this
+   section (it lands at 640px, the CTA sits near 5900px). Keep them in step if
+   the CTA ever moves up the page or the gradient grows. */
+@supports ((-webkit-text-stroke:2px #117B83) and (paint-order:stroke)){
+  .cta h2 .hollow{color:#fff;-webkit-text-stroke:clamp(2.6px,.44vw,4.6px) var(--teal);paint-order:stroke fill}
+}
 .cta .petals{margin-top:clamp(16px,2.4vw,26px)}
 .cta .play{margin-top:clamp(20px,3vw,34px)}
 
