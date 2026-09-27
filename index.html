@@ -15,288 +15,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="vivevo.svg">
-<style>
-:root{
-  --teal:#117B83;
-  --teal-dk:#0C6068;
-  --ink:#07464B;
-  --body:#41605F;
-  --mist:#DFF3F4;
-  --mist-soft:#F2FAFA;
-  --line:#D9EAEB;
-  --amber:#FFB300;
-  --mood:#117B83; --energy:#E65100; --prod:#6A1B9A; --diet:#2E7D32; --rel:#C2185B;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-html,body{overflow-x:hidden;overflow-x:clip}
-body{
-  background:linear-gradient(#EFF9F9,#FFFFFF 640px);
-  color:var(--ink);
-  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  line-height:1.45;
-  -webkit-font-smoothing:antialiased;
-}
-img{display:block;max-width:100%;height:auto}
-a{color:inherit}
-a:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
-.ic{width:1em;height:1em;display:block}
-.wrap{max-width:1200px;margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-
-/* ---------- header ---------- */
-.top{display:flex;align-items:center;gap:13px;padding-block:clamp(16px,2.5vw,26px)}
-.top img{width:clamp(38px,4vw,46px);height:auto;border-radius:24%}
-.top .name{font-weight:800;font-size:clamp(1.05rem,2vw,1.25rem);letter-spacing:.01em}
-.top .toplink{margin-left:auto;color:var(--teal);text-decoration:none;font-weight:700;font-size:.9rem;letter-spacing:.06em;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:.55em 1.15em;white-space:nowrap}
-.top .toplink:hover{border-color:var(--teal);background:var(--mist-soft)}
-
-/* ---------- petal dots ---------- */
-.petals{display:inline-flex;gap:7px;align-items:center}
-.petals i{width:9px;height:9px;border-radius:50% 50% 50% 4px;display:block}
-.petals i:nth-child(1){background:var(--mood)}
-.petals i:nth-child(2){background:var(--energy)}
-.petals i:nth-child(3){background:var(--prod)}
-.petals i:nth-child(4){background:var(--diet)}
-.petals i:nth-child(5){background:var(--rel)}
-
-/* ---------- hero ---------- */
-.hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(36px,6vw,96px)}
-.hero h1{font-size:clamp(2.7rem,7vw,5.2rem);font-weight:800;letter-spacing:-.025em;line-height:1.02}
-.hero h1 em{font-style:normal;color:var(--teal)}
-.hero .petals{margin-top:clamp(14px,2vw,22px)}
-.tag{margin-top:clamp(16px,2.4vw,26px);color:var(--body);font-size:clamp(1.05rem,1.7vw,1.3rem);max-width:44ch}
-.tag b{font-weight:800}
-.tag .w-mood{color:var(--mood)} .tag .w-energy{color:var(--energy)} .tag .w-prod{color:var(--prod)} .tag .w-diet{color:var(--diet)} .tag .w-rel{color:var(--rel)}
-.pitch{margin-top:.85em;font-weight:800;font-size:clamp(1.2rem,2.2vw,1.55rem);letter-spacing:-.01em}
-.play{display:inline-flex;align-items:center;gap:.7em;margin-top:clamp(20px,2.8vw,32px);background:var(--teal);color:#fff;text-decoration:none;font-weight:800;letter-spacing:.03em;font-size:clamp(.95rem,1.4vw,1.08rem);padding:.95em 1.5em;border-radius:15px;box-shadow:0 8px 22px rgba(17,123,131,.28)}
-.play .tri{width:0;height:0;border-left:.72em solid #fff;border-top:.46em solid transparent;border-bottom:.46em solid transparent}
-.play:hover{background:var(--teal-dk)}
-.free{margin-top:14px;color:var(--body);font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
-
-/* hero art: the phone */
-.hero-art{position:relative;justify-self:center;width:min(324px,100%)}
-.hero-art::before{content:"";position:absolute;inset:-16% -22%;background:radial-gradient(closest-side,rgba(133,206,211,.5),rgba(223,243,244,0) 74%);z-index:-1;pointer-events:none}
-.phone{background:#fff;border:1px solid var(--line);border-radius:38px;padding:10px;box-shadow:0 28px 70px rgba(7,70,75,.18)}
-.screen{border-radius:29px;overflow:hidden;border:1px solid #E8F2F3;background:#fff}
-.pbar{background:var(--teal);color:#fff;display:flex;align-items:center;gap:11px;padding:13px 14px;font-weight:700;font-size:15px}
-.pbar .picons{margin-left:auto;display:flex;align-items:center;gap:11px;color:#fff}
-.pbar .ic{width:17px;height:17px}
-.pbar .avatar{width:24px;height:24px;border-radius:8px;background:#80DEEA;color:var(--ink);display:grid;place-items:center}
-.pbar .avatar .ic{width:14px;height:14px}
-.ptabs{display:grid;grid-template-columns:repeat(5,1fr);background:rgba(17,123,131,.08);border-bottom:1px solid rgba(17,123,131,.25)}
-.ptabs span{display:grid;place-items:center;padding:10px 0;color:rgba(7,70,75,.42)}
-.ptabs .ic{width:21px;height:21px}
-.ptabs .on{background:rgba(17,123,131,.18);color:var(--teal)}
-.pbody{padding:13px 12px 14px}
-.pq{text-align:center;font-weight:700;font-size:14.5px;margin-bottom:11px}
-.prate{display:flex;justify-content:space-between;gap:7px}
-.prate b{flex:1;aspect-ratio:1;border-radius:12px;display:grid;place-items:center}
-.prate .ic{width:23px;height:23px}
-.prate .sel{transform:scale(1.09);border:2.5px solid var(--teal);box-shadow:0 0 12px rgba(0,137,123,.45)}
-.pnote{display:flex;gap:8px;margin-top:11px;align-items:stretch}
-.pnote span{flex:1;border:1.2px solid #C9DCDE;border-radius:10px;padding:9px 10px;color:#8AA4A6;font-size:11.5px}
-.pnote .psave{width:44px;border-radius:10px;background:var(--teal);display:grid;place-items:center;color:#fff}
-.pnote .ic{width:17px;height:17px}
-.pmonth{border-top:1px solid #E4EFF0;margin-top:13px;padding-top:9px;display:flex;align-items:center;justify-content:space-between;color:#6B8688}
-.pmonth .ic{width:15px;height:15px}
-.pmid{text-align:center;color:var(--ink)}
-.pmid .m{font-weight:800;font-size:13.5px;display:block}
-.pstreak{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#FFAD42}
-.pstreak .ic{width:13px;height:13px}
-.pstreak .snow{color:var(--teal);display:inline-flex;gap:2px}
-.pstreak .snow .ic{width:11px;height:11px}
-.pweek{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:8px;text-align:center;font-size:8.5px;font-weight:700;color:#93A9AB;letter-spacing:.04em}
-.pgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:4px}
-.pgrid .d{position:relative;aspect-ratio:1;border-radius:8px;display:grid;place-items:center;font-size:10px;font-weight:600;color:#9DB1B3;border:1px solid rgba(0,0,0,.05)}
-.pgrid .d .ic{width:15px;height:15px}
-.pgrid .blank{visibility:hidden}
-.pgrid .fz{background:rgba(17,123,131,.1);color:var(--teal)}
-.pgrid .ed{border:1.4px solid rgba(17,123,131,.5)}
-.pgrid .today{box-shadow:0 0 0 2px var(--teal)}
-.pgrid .n::after{content:"";position:absolute;top:3px;right:3px;width:4.5px;height:4.5px;border-radius:2px;background:rgba(255,255,255,.85)}
-.r1{background:#E0E0E0;color:#757575}
-.r2{background:#B2DFDB;color:#00695C}
-.r3{background:#4DB6AC;color:#E0F2F1}
-.r4{background:#00897B;color:#B2DFDB}
-.r5{background:#004D40;color:#CBDAD8}
-/* floating chips */
-.fcard{position:absolute;display:flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:9px 12px;font-size:11.5px;font-weight:600;color:var(--ink);box-shadow:0 10px 26px rgba(7,70,75,.14);max-width:200px}
-.fcard .ic{width:16px;height:16px;flex:none}
-.f-qotd{left:-13%;bottom:3.5%;color:var(--ink)}
-.f-qotd .ic{color:var(--prod)}
-.f-frozen{right:-14%;top:64%}
-.f-frozen .ic{color:var(--teal)}
-
-/* ---------- sections ---------- */
-section{padding-block:clamp(44px,6.5vw,96px)}
-.kick{display:flex;align-items:center;gap:.8em;margin-bottom:14px}
-.knum{font-weight:800;font-size:.82rem;padding:.35em .8em;border-radius:999px;background:var(--mist);color:var(--teal);letter-spacing:.08em}
-.klab{font-weight:800;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
-.kick .petals{margin-left:auto}
-.k-diet .knum,.k-diet .klab{color:var(--diet)} .k-diet .knum{background:#E3F1E4}
-.k-energy .knum,.k-energy .klab{color:var(--energy)} .k-energy .knum{background:#FBEADF}
-.k-prod .knum,.k-prod .klab{color:var(--prod)} .k-prod .knum{background:#EFE4F5}
-section h2{font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.1}
-.lead{margin-top:.7em;color:var(--body);font-size:clamp(1rem,1.5vw,1.15rem);max-width:62ch}
-.sechead{margin-bottom:clamp(26px,4vw,48px)}
-
-/* cards */
-.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 4px 18px rgba(7,70,75,.06)}
-
-/* ---------- method steps ---------- */
-.steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,34px)}
-.step .art{aspect-ratio:5/3;border-radius:16px;background:var(--mist-soft);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:16px;overflow:hidden}
-.step .num{color:var(--teal);font-weight:800;font-size:.8rem;letter-spacing:.16em}
-.step h3{font-weight:800;font-size:clamp(1.1rem,1.9vw,1.35rem);margin-top:.25em;letter-spacing:-.01em}
-.step p{color:var(--body);font-size:clamp(.95rem,1.4vw,1.03rem);margin-top:.35em;max-width:34ch}
-.mini-rate{display:flex;gap:7px}
-.mini-rate b{width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
-.mini-rate .ic{width:17px;height:17px}
-.mini-rate .sel{transform:scale(1.12);border:2px solid var(--teal);box-shadow:0 0 9px rgba(0,137,123,.45)}
-.mini-month{display:grid;grid-template-columns:repeat(7,16px);gap:4px}
-.mini-month i{width:16px;height:16px;border-radius:5px;display:grid;place-items:center}
-.mini-month .ic{width:9px;height:9px}
-.mini-month .mm-e{background:#fff;border:1px solid var(--line)}
-.mini-month .mm-f{background:rgba(17,123,131,.12);color:var(--teal)}
-
-/* ---------- areas ---------- */
-.areas-flex{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
-.arealogo{width:clamp(110px,13vw,160px);border-radius:22%;box-shadow:0 12px 34px rgba(7,70,75,.16)}
-.areas{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.8vw,20px)}
-.area{padding:16px 14px 15px;border-radius:16px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--c);box-shadow:0 4px 18px rgba(7,70,75,.06)}
-.area .achip{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:var(--c);background:var(--tint,#F2FAFA)}
-.area .achip .ic{width:21px;height:21px}
-.area h3{font-size:1.02rem;font-weight:800;margin-top:10px;letter-spacing:-.01em}
-.area .scale{display:flex;gap:4px;margin-top:9px}
-.area .scale i{flex:1;height:13px;border-radius:5px}
-.area p{margin-top:8px;color:var(--body);font-size:.82rem}
-.areanote{margin-top:clamp(18px,2.6vw,26px);color:var(--body);font-size:clamp(.95rem,1.4vw,1.05rem);max-width:62ch}
-
-/* ---------- streak band ---------- */
-.band{border-radius:24px;background:linear-gradient(135deg,#E5F5F5,#FFFFFF 62%);border:1px solid var(--line);padding:clamp(24px,4vw,48px);margin-bottom:clamp(24px,3.6vw,44px)}
-.band h3{font-size:clamp(1.35rem,2.8vw,2rem);font-weight:800;letter-spacing:-.015em}
-.band>p{color:var(--body);margin-top:.55em;font-size:clamp(.95rem,1.4vw,1.08rem);max-width:58ch}
-.ramp-wrap{margin-top:clamp(26px,4vw,40px);padding-top:42px;position:relative}
-.ramp{height:14px;border-radius:999px;background:linear-gradient(90deg,#FFC107 0%,#FF9800 9%,#F44336 18%,#9C27B0 36%,#2196F3 73%,#00BCD4 100%)}
-.rmark{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:1px}
-.rmark .ic{width:17px;height:17px}
-.rmark span{font-size:.72rem;font-weight:700;color:var(--body);white-space:nowrap}
-.rmark:first-of-type{transform:none}
-.rmark:last-of-type{transform:translateX(-100%)}
-.ramp-cap{margin-top:12px;color:var(--body);font-size:.88rem}
-
-/* ---------- feature tiles ---------- */
-.tiles{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.2vw,22px)}
-.tiles li{padding:18px 16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 4px 18px rgba(7,70,75,.06)}
-.tiles .tchip{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff}
-.tiles .tchip .ic{width:21px;height:21px}
-.t-teal{background:var(--teal)} .t-energy{background:var(--energy)} .t-prod{background:var(--prod)} .t-rel{background:var(--rel)} .t-diet{background:var(--diet)}
-.tiles h3{font-weight:800;font-size:1.02rem;margin-top:12px;letter-spacing:-.01em}
-.tiles p{color:var(--body);font-size:.9rem;margin-top:.35em}
-@media (prefers-reduced-motion:no-preference){
-  .tiles li,.area,.chart{transition:transform .18s ease}
-  .tiles li:hover,.area:hover,.chart:hover{transform:translateY(-4px)}
-}
-
-/* ---------- details ---------- */
-details{border:1px solid var(--line);border-radius:16px;margin-top:clamp(22px,3.4vw,38px);background:#fff;box-shadow:0 4px 18px rgba(7,70,75,.05)}
-details summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.7em;font-weight:800;letter-spacing:.01em;font-size:.98rem;padding:1em 1.2em;color:var(--ink)}
-details summary::-webkit-details-marker{display:none}
-details summary::before{content:"+" / "";font-weight:800;font-size:1.25em;line-height:1;width:1.1em;height:1.1em;display:grid;place-items:center;border-radius:8px;background:var(--mist);color:var(--teal);flex:none}
-details[open] summary::before{content:"\2212" / ""}
-details .dbody{padding:0 1.25em 1.25em 3.2em;color:var(--body);font-size:.97rem;max-width:72ch}
-details .dbody p+p{margin-top:.7em}
-
-/* ---------- charts ---------- */
-.charts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.2vw,22px);align-items:start}
-.chart{margin:0;padding:14px;border-radius:18px;background:#fff;border:1px solid var(--line);box-shadow:0 4px 18px rgba(7,70,75,.06)}
-.chart .cplot{border-radius:12px;overflow:hidden}
-.chart figcaption{margin-top:12px;padding-inline:2px}
-.chart figcaption b{display:block;font-size:.98rem;letter-spacing:-.01em}
-.chart figcaption span{display:block;color:var(--body);font-size:.85rem;margin-top:2px}
-.wbars{display:flex;gap:7px;align-items:flex-end;height:170px;padding:12px 10px 6px;background:var(--mist-soft);border-radius:12px}
-.wb{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
-.wb i{width:100%;border-radius:5px 5px 2px 2px;display:block}
-.wb span{font-size:.68rem;font-weight:700;color:var(--body)}
-.hmap{background:var(--mist-soft);border-radius:12px;padding:12px 10px}
-.hrow{display:grid;grid-template-columns:26px repeat(7,1fr);gap:4px;margin-top:4px;align-items:center}
-.hrow:first-child{margin-top:0}
-.hlab{font-size:.66rem;font-weight:700;color:var(--body);text-align:center}
-.hcell{height:25px;border-radius:5px;display:grid;place-items:center;font-size:.64rem;font-weight:700}
-.h3v{background:#4DB6AC;color:#03332E}
-.h4v{background:#00897B;color:#E8F5F3}
-.h5v{background:#004D40;color:#CBDAD8}
-.chips{margin-top:clamp(20px,3vw,30px);display:flex;flex-wrap:wrap;gap:10px}
-.chips span{display:inline-flex;align-items:center;gap:.5em;border:1px solid var(--line);background:#fff;border-radius:999px;padding:.5em 1em;font-size:.86rem;font-weight:700;color:var(--body)}
-.chips .ic{width:15px;height:15px;color:var(--teal)}
-
-/* ---------- plus band ---------- */
-.plus{display:flex;gap:16px;align-items:flex-start;border:1px solid #F3DFAE;border-radius:18px;background:linear-gradient(135deg,#FFF8E7,#FFFFFF 70%);padding:clamp(18px,2.6vw,26px);color:var(--body);font-size:.98rem}
-.plus .pchip{flex:none;width:42px;height:42px;border-radius:13px;background:var(--amber);display:grid;place-items:center;color:#fff;box-shadow:0 6px 16px rgba(255,179,0,.35)}
-.plus .pchip .ic{width:22px;height:22px}
-.plus b{color:var(--ink);font-weight:800}
-.plus .pname{font-size:1.05rem}
-.plus .pname em{font-style:normal;color:#B37D00}
-
-/* ---------- cta ---------- */
-.cta{text-align:left}
-.cta h2{font-size:clamp(2.4rem,7.5vw,5.6rem);font-weight:800;line-height:1;letter-spacing:-.03em}
-.cta h2 .hollow{color:var(--teal)}
-@supports ((-webkit-text-stroke:2px #117B83)){
-  .cta h2 .hollow{color:transparent;-webkit-text-stroke:clamp(1.3px,.22vw,2.3px) var(--teal)}
-}
-/* A centred stroke over a transparent fill draws both edges of every stem, so
-   the inner edges meet and cross inside letters whose parts join -- the F bar,
-   the a/d/o bowls, the y tail. That tangle is what showed on Android Chrome.
-   Painting the stroke first and filling the glyph on top hides the inner half,
-   leaving one clean outline per letter; the width doubles because only the
-   outer half now shows. The fill is a literal #fff, not a background variable:
-   the body gradient has already resolved to solid #FFFFFF well before this
-   section (it lands at 640px, the CTA sits near 5900px). Keep them in step if
-   the CTA ever moves up the page or the gradient grows. */
-@supports ((-webkit-text-stroke:2px #117B83) and (paint-order:stroke)){
-  .cta h2 .hollow{color:#fff;-webkit-text-stroke:clamp(2.6px,.44vw,4.6px) var(--teal);paint-order:stroke fill}
-}
-.cta .petals{margin-top:clamp(16px,2.4vw,26px)}
-.cta .play{margin-top:clamp(20px,3vw,34px)}
-
-/* ---------- footer ---------- */
-footer{border-top:1px solid var(--line);padding-block:clamp(26px,3.8vw,44px);margin-top:clamp(28px,4.5vw,60px);background:var(--mist-soft)}
-footer .frow{display:flex;flex-wrap:wrap;align-items:center;gap:16px clamp(18px,3vw,34px)}
-footer img{width:32px;height:auto;border-radius:24%}
-footer a{color:var(--body);text-decoration:none;font-size:.92rem;display:inline-block;padding-block:.5em}
-footer a:hover{color:var(--ink);text-decoration:underline}
-footer .copy{margin-left:auto;color:var(--body);font-size:.92rem}
-
-/* ---------- responsive ---------- */
-@media (max-width:960px){
-  .hero{grid-template-columns:1fr;padding-block:clamp(24px,5vw,52px)}
-  .hero-art{margin-top:10px}
-  .f-qotd{left:-4%}
-  .f-frozen{right:-5%}
-  .steps{grid-template-columns:1fr;gap:20px}
-  .step{display:grid;grid-template-columns:128px 1fr;gap:16px;align-items:center}
-  .step .art{aspect-ratio:1;margin-bottom:0;padding:6px}
-  .mini-rate b{width:20px;height:20px;border-radius:7px}
-  .mini-rate{gap:4px}
-  .mini-rate .ic{width:13px;height:13px}
-  .mini-month{grid-template-columns:repeat(7,11px);gap:3px}
-  .mini-month i{width:11px;height:11px;border-radius:4px}
-  .step .mini-trend{width:88px}
-  .areas-flex{grid-template-columns:1fr;justify-items:center;text-align:center}
-  .areas{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));width:100%}
-  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .charts{grid-template-columns:1fr}
-  .kick .petals{display:none}
-}
-@media (max-width:440px){
-  .top .toplink{display:none}
-  .tiles{grid-template-columns:1fr}
-  .fcard{display:none}
-}
-</style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
 
@@ -313,16 +32,12 @@ footer .copy{margin-left:auto;color:var(--body);font-size:.92rem}
 <symbol id="i-food" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></symbol>
 <symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.6l5 5L19.5 7.2" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-chart" viewBox="0 0 24 24"><path fill="currentColor" d="M4 11h3.2v9H4zM10.4 4h3.2v16h-3.2zM16.8 8H20v12h-3.2z"/></symbol>
 <symbol id="i-list" viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M3.5 6.2l1.6 1.6 3-3"/><path d="M3.5 12.7l1.6 1.6 3-3"/><path d="M3.5 19.2l1.6 1.6 3-3"/><path d="M11.5 6.6H21"/><path d="M11.5 13.1H21"/><path d="M11.5 19.6H21"/></g></symbol>
-<symbol id="i-dots" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="19" r="1.7" fill="currentColor"/></symbol>
 <symbol id="i-bell" viewBox="0 0 24 24"><path fill="currentColor" d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5a6 6 0 0 0-5-5.91V4a1 1 0 1 0-2 0v1.09A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z"/></symbol>
 <symbol id="i-bulb" viewBox="0 0 24 24"><path fill="currentColor" d="M9.3 21h5.4v-1.6H9.3zM12 2a7 7 0 0 0-4 12.74c.63.44 1 1.16 1 1.93v.33h6v-.33c0-.77.37-1.49 1-1.93A7 7 0 0 0 12 2z"/></symbol>
 <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2-5.6 3.2 1.3-6.2L3 9.1l6.3-.7z"/></symbol>
 <symbol id="i-download" viewBox="0 0 24 24"><path fill="currentColor" d="M19 9.5h-4v-6H9v6H5l7 7zM5 18.5v2h14v-2z"/></symbol>
 <symbol id="i-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-3.3 0-8 1.7-8 5v1.5h16V19c0-3.3-4.7-5-8-5z"/></symbol>
-<symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M14.5 5.5 8 12l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9.5 5.5 16 12l-6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="i-cloudsync" viewBox="0 0 24 24"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4 7.49 7.49 0 0 0 5.35 8.04 5.994 5.994 0 0 0 6 20h13a5 5 0 0 0 .35-9.96z"/></symbol>
 </defs></svg>
 
@@ -346,77 +61,10 @@ footer .copy{margin-left:auto;color:var(--body);font-size:.92rem}
       <p class="free">Free &middot; Android &middot; No ads &middot; English &amp; Deutsch</p>
     </div>
 
-    <figure class="hero-art" role="img" aria-label="The vivevo home screen: the question ‘How are you feeling today?’ above five rating tiles from rain cloud to confetti, and a July calendar filled with colored day tiles, a 25-day streak flame and two streak freezes.">
-      <div class="phone" aria-hidden="true">
-        <div class="screen">
-          <div class="pbar">vivevo
-            <span class="picons">
-              <svg class="ic"><use href="#i-list"/></svg>
-              <svg class="ic"><use href="#i-chart"/></svg>
-              <svg class="ic"><use href="#i-dots"/></svg>
-              <span class="avatar"><svg class="ic"><use href="#i-user"/></svg></span>
-            </span>
-          </div>
-          <div class="ptabs">
-            <span class="on"><svg class="ic"><use href="#i-smile"/></svg></span>
-            <span><svg class="ic"><use href="#i-bolt"/></svg></span>
-            <span><svg class="ic"><use href="#i-trend"/></svg></span>
-            <span><svg class="ic"><use href="#i-food"/></svg></span>
-            <span><svg class="ic"><use href="#i-heart"/></svg></span>
-          </div>
-          <div class="pbody">
-            <p class="pq">How are you feeling today?</p>
-            <div class="prate">
-              <b class="r1"><svg class="ic"><use href="#i-rain"/></svg></b>
-              <b class="r2"><svg class="ic"><use href="#i-sad"/></svg></b>
-              <b class="r3"><svg class="ic"><use href="#i-meh"/></svg></b>
-              <b class="r4 sel"><svg class="ic"><use href="#i-smile"/></svg></b>
-              <b class="r5"><svg class="ic"><use href="#i-confetti"/></svg></b>
-            </div>
-            <div class="pnote"><span>Note (optional)</span><span class="psave"><svg class="ic"><use href="#i-check"/></svg></span></div>
-            <div class="pmonth">
-              <svg class="ic"><use href="#i-chev-l"/></svg>
-              <span class="pmid">
-                <span class="m">July 2026</span>
-                <span class="pstreak"><svg class="ic"><use href="#i-flame"/></svg>25 days
-                  <span class="snow"><svg class="ic"><use href="#i-snow"/></svg><svg class="ic"><use href="#i-snow"/></svg></span>
-                </span>
-              </span>
-              <svg class="ic"><use href="#i-chev-r"/></svg>
-            </div>
-            <div class="pweek"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
-            <div class="pgrid">
-              <i class="d blank"></i><i class="d blank"></i>
-              <i class="d r3"><svg class="ic"><use href="#i-meh"/></svg></i>
-              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d r2"><svg class="ic"><use href="#i-sad"/></svg></i>
-              <i class="d r5"><svg class="ic"><use href="#i-confetti"/></svg></i>
-              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d r3"><svg class="ic"><use href="#i-meh"/></svg></i>
-              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d r5 n"><svg class="ic"><use href="#i-confetti"/></svg></i>
-              <i class="d r5"><svg class="ic"><use href="#i-confetti"/></svg></i>
-              <i class="d r3"><svg class="ic"><use href="#i-meh"/></svg></i>
-              <i class="d r2"><svg class="ic"><use href="#i-sad"/></svg></i>
-              <i class="d fz"><svg class="ic"><use href="#i-snow"/></svg></i>
-              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d r3"><svg class="ic"><use href="#i-meh"/></svg></i>
-              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d r5"><svg class="ic"><use href="#i-confetti"/></svg></i>
-              <i class="d r4"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d r4 ed"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d r5 ed n"><svg class="ic"><use href="#i-confetti"/></svg></i>
-              <i class="d r3 ed"><svg class="ic"><use href="#i-meh"/></svg></i>
-              <i class="d r4 ed"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d r4 ed"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d r5 ed"><svg class="ic"><use href="#i-confetti"/></svg></i>
-              <i class="d r4 ed today"><svg class="ic"><use href="#i-smile"/></svg></i>
-              <i class="d">27</i><i class="d">28</i><i class="d">29</i><i class="d">30</i><i class="d">31</i>
-            </div>
-          </div>
-        </div>
+    <figure class="hero-art">
+      <div class="phone">
+        <img src="shots/en/home_mood.webp" width="600" height="1333" fetchpriority="high"
+          alt="The vivevo home screen: the question “How are you feeling today?” above five rating tiles from rain cloud to confetti, today’s note “Sunny walk by the lake”, and a September calendar of colored day tiles under a 129-day streak.">
       </div>
       <span class="fcard f-qotd" aria-hidden="true"><svg class="ic"><use href="#i-bulb"/></svg>“What made you smile today?”</span>
       <span class="fcard f-frozen" aria-hidden="true"><svg class="ic"><use href="#i-snow"/></svg>Missed day covered — streak safe</span>
@@ -524,6 +172,18 @@ footer .copy{margin-left:auto;color:var(--body);font-size:.92rem}
         </li>
       </ul>
     </div>
+    <ul class="shots" aria-label="The home screen in each area's colors">
+      <li><figure style="--c:#117B83"><div class="phone"><img src="shots/en/home_mood.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Mood: a teal calendar of smiles and confetti, with a 129-day streak."></div><figcaption><b>Mood</b></figcaption></figure></li>
+      <li><figure style="--c:#E65100"><div class="phone"><img src="shots/en/home_energy.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Energy: an orange calendar of battery levels, one day covered by a streak freeze."></div><figcaption><b>Energy</b></figcaption></figure></li>
+      <li><figure style="--c:#6A1B9A"><div class="phone"><img src="shots/en/home_productivity.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Productivity: a purple calendar from paused to rocket launch."></div><figcaption><b>Productivity</b></figcaption></figure></li>
+      <li><figure style="--c:#2E7D32"><div class="phone"><img src="shots/en/home_diet.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Diet: a calendar in reds, yellows and greens, from cake to carrot."></div><figcaption><b>Diet</b></figcaption></figure></li>
+      <li><figure style="--c:#C2185B"><div class="phone"><img src="shots/en/home_relationship.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Relationship: a pink calendar of hearts, with a 183-day streak."></div><figcaption><b>Relationship</b></figcaption></figure></li>
+    </ul>
     <p class="areanote">Track one area or all five — each keeps its own streak, calendar and charts, and the whole app recolors to the area you're in.</p>
   </section>
 
@@ -568,6 +228,14 @@ footer .copy{margin-left:auto;color:var(--body);font-size:.92rem}
         <p>All five areas on one screen — straight from the reminder notification.</p>
       </li>
     </ul>
+    <ul class="shots two" aria-label="Two more screens">
+      <li><figure><div class="phone"><img src="shots/en/checkin.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Quick check-in for Sunday, September 27, 2026: mood, energy and productivity rated, with notes such as “Sunny walk by the lake”."></div>
+        <figcaption><b>Quick check-in</b><span>Every area you track, on one screen.</span></figcaption></figure></li>
+      <li><figure><div class="phone"><img src="shots/en/question.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="The question of the day, “What made you smile today?”, over the home screen."></div>
+        <figcaption><b>Question of the day</b><span>Worded for the time of day.</span></figcaption></figure></li>
+    </ul>
   </section>
 
   <section class="wrap" aria-labelledby="k-insight">
@@ -578,58 +246,18 @@ footer .copy{margin-left:auto;color:var(--body);font-size:.92rem}
     </div>
     <div class="charts">
       <figure class="chart">
-        <div class="cplot" role="img" aria-label="Trend chart: a 7-day moving average line rising over a background shaded with the five mood colors.">
-          <svg viewBox="0 0 320 190" width="100%" style="display:block">
-            <defs>
-              <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#004D40" stop-opacity=".45"/>
-                <stop offset=".25" stop-color="#00897B" stop-opacity=".45"/>
-                <stop offset=".5" stop-color="#4DB6AC" stop-opacity=".45"/>
-                <stop offset=".75" stop-color="#B2DFDB" stop-opacity=".45"/>
-                <stop offset="1" stop-color="#E0E0E0" stop-opacity=".45"/>
-              </linearGradient>
-            </defs>
-            <rect x="40" y="12" width="272" height="150" rx="9" fill="url(#tg)"/>
-            <g stroke="#fff" stroke-opacity=".55" stroke-width="1">
-              <line x1="40" y1="42" x2="312" y2="42"/><line x1="40" y1="72" x2="312" y2="72"/>
-              <line x1="40" y1="102" x2="312" y2="102"/><line x1="40" y1="132" x2="312" y2="132"/>
-            </g>
-            <g style="color:#7F9799">
-              <svg x="12" y="19" width="16" height="16" viewBox="0 0 24 24"><use href="#i-confetti"/></svg>
-              <svg x="12" y="49" width="16" height="16" viewBox="0 0 24 24"><use href="#i-smile"/></svg>
-              <svg x="12" y="79" width="16" height="16" viewBox="0 0 24 24"><use href="#i-meh"/></svg>
-              <svg x="12" y="109" width="16" height="16" viewBox="0 0 24 24"><use href="#i-sad"/></svg>
-              <svg x="12" y="139" width="16" height="16" viewBox="0 0 24 24"><use href="#i-rain"/></svg>
-            </g>
-            <path d="M48 88 C60 76,72 62,86 60 C100 58,110 88,124 96" fill="none" stroke="#117B83" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M124 96 C138 104,148 118,162 118 C176 118,186 96,200 86" fill="none" stroke="#117B83" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="5 5"/>
-            <path d="M200 86 C214 76,224 56,238 50 C252 44,258 60,272 60 C286 60,296 44,304 36" fill="none" stroke="#117B83" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="304" cy="36" r="4.5" fill="#117B83" stroke="#fff" stroke-width="2"/>
-          </svg>
-        </div>
+        <img src="shots/en/chart_trend.webp" width="800" height="578" loading="lazy" decoding="async"
+          alt="The Trend card: a 7-day average of mood ratings from June 2025 to September 2026, drawn over the five mood colors.">
         <figcaption><b>Trend</b><span>A 7-day average of your ratings — gaps get dotted lines, not lies.</span></figcaption>
       </figure>
       <figure class="chart">
-        <div class="cplot wbars" role="img" aria-label="Weekday average bar chart: Monday through Sunday, with Friday, Saturday and Sunday clearly higher.">
-          <span class="wb"><i style="height:62%;background:#4DB6AC"></i><span>Mon</span></span>
-          <span class="wb"><i style="height:68%;background:#4DB6AC"></i><span>Tue</span></span>
-          <span class="wb"><i style="height:60%;background:#4DB6AC"></i><span>Wed</span></span>
-          <span class="wb"><i style="height:72%;background:#00897B"></i><span>Thu</span></span>
-          <span class="wb"><i style="height:84%;background:#00897B"></i><span>Fri</span></span>
-          <span class="wb"><i style="height:92%;background:#004D40"></i><span>Sat</span></span>
-          <span class="wb"><i style="height:80%;background:#00897B"></i><span>Sun</span></span>
-        </div>
+        <img src="shots/en/chart_weekday.webp" width="800" height="578" loading="lazy" decoding="async"
+          alt="The Weekday Average card: one bar per weekday, rising from Monday to a high on Saturday.">
         <figcaption><b>Weekday average</b><span>Which day of the week treats you best.</span></figcaption>
       </figure>
       <figure class="chart">
-        <div class="cplot hmap" role="img" aria-label="Prototypical month heatmap: five week rows by seven weekday columns, showing higher averages toward weekends.">
-          <div class="hrow"><span class="hlab"></span><span class="hlab">M</span><span class="hlab">T</span><span class="hlab">W</span><span class="hlab">T</span><span class="hlab">F</span><span class="hlab">S</span><span class="hlab">S</span></div>
-          <div class="hrow"><span class="hlab">W1</span><span class="hcell h3v">3.2</span><span class="hcell h3v">3.4</span><span class="hcell h3v">3.1</span><span class="hcell h3v">3.3</span><span class="hcell h4v">3.9</span><span class="hcell h4v">4.4</span><span class="hcell h4v">4.1</span></div>
-          <div class="hrow"><span class="hlab">W2</span><span class="hcell h3v">3.0</span><span class="hcell h3v">3.2</span><span class="hcell h3v">3.3</span><span class="hcell h4v">3.5</span><span class="hcell h4v">4.0</span><span class="hcell h5v">4.6</span><span class="hcell h4v">4.2</span></div>
-          <div class="hrow"><span class="hlab">W3</span><span class="hcell h3v">2.8</span><span class="hcell h3v">3.1</span><span class="hcell h3v">3.0</span><span class="hcell h3v">3.4</span><span class="hcell h4v">3.8</span><span class="hcell h4v">4.3</span><span class="hcell h4v">4.0</span></div>
-          <div class="hrow"><span class="hlab">W4</span><span class="hcell h3v">3.1</span><span class="hcell h3v">3.3</span><span class="hcell h3v">3.4</span><span class="hcell h4v">3.6</span><span class="hcell h4v">4.1</span><span class="hcell h5v">4.7</span><span class="hcell h4v">4.3</span></div>
-          <div class="hrow"><span class="hlab">W5</span><span class="hcell h3v">3.3</span><span class="hcell h4v">3.5</span><span class="hcell h3v">3.2</span><span class="hcell h4v">3.7</span><span class="hcell h4v">4.2</span><span class="hcell h5v">4.5</span><span class="hcell h4v">4.1</span></div>
-        </div>
+        <img src="shots/en/chart_heatmap.webp" width="800" height="816" loading="lazy" decoding="async"
+          alt="The Prototypical Month card: a heatmap of average ratings, five week rows by seven weekday columns.">
         <figcaption><b>Prototypical month</b><span>All your months overlaid — the rhythm hiding inside a month.</span></figcaption>
       </figure>
     </div>

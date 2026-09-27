@@ -1,0 +1,261 @@
+/* The landing page's styles, out of index.html so another language's page
+   can share them rather than copy them. The legal pages have their own
+   legal.css with the same tokens. */
+
+:root{
+  --teal:#117B83;
+  --teal-dk:#0C6068;
+  --ink:#07464B;
+  --body:#41605F;
+  --mist:#DFF3F4;
+  --mist-soft:#F2FAFA;
+  --line:#D9EAEB;
+  --amber:#FFB300;
+  --mood:#117B83; --energy:#E65100; --prod:#6A1B9A; --diet:#2E7D32; --rel:#C2185B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html,body{overflow-x:hidden;overflow-x:clip}
+body{
+  background:linear-gradient(#EFF9F9,#FFFFFF 640px);
+  color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.ic{width:1em;height:1em;display:block}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- header ---------- */
+.top{display:flex;align-items:center;gap:13px;padding-block:clamp(16px,2.5vw,26px)}
+.top img{width:clamp(38px,4vw,46px);height:auto;border-radius:24%}
+.top .name{font-weight:800;font-size:clamp(1.05rem,2vw,1.25rem);letter-spacing:.01em}
+.top .toplink{margin-left:auto;color:var(--teal);text-decoration:none;font-weight:700;font-size:.9rem;letter-spacing:.06em;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:.55em 1.15em;white-space:nowrap}
+.top .toplink:hover{border-color:var(--teal);background:var(--mist-soft)}
+
+/* ---------- petal dots ---------- */
+.petals{display:inline-flex;gap:7px;align-items:center}
+.petals i{width:9px;height:9px;border-radius:50% 50% 50% 4px;display:block}
+.petals i:nth-child(1){background:var(--mood)}
+.petals i:nth-child(2){background:var(--energy)}
+.petals i:nth-child(3){background:var(--prod)}
+.petals i:nth-child(4){background:var(--diet)}
+.petals i:nth-child(5){background:var(--rel)}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(36px,6vw,96px)}
+.hero h1{font-size:clamp(2.7rem,7vw,5.2rem);font-weight:800;letter-spacing:-.025em;line-height:1.02}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.hero .petals{margin-top:clamp(14px,2vw,22px)}
+.tag{margin-top:clamp(16px,2.4vw,26px);color:var(--body);font-size:clamp(1.05rem,1.7vw,1.3rem);max-width:44ch}
+.tag b{font-weight:800}
+.tag .w-mood{color:var(--mood)} .tag .w-energy{color:var(--energy)} .tag .w-prod{color:var(--prod)} .tag .w-diet{color:var(--diet)} .tag .w-rel{color:var(--rel)}
+.pitch{margin-top:.85em;font-weight:800;font-size:clamp(1.2rem,2.2vw,1.55rem);letter-spacing:-.01em}
+.play{display:inline-flex;align-items:center;gap:.7em;margin-top:clamp(20px,2.8vw,32px);background:var(--teal);color:#fff;text-decoration:none;font-weight:800;letter-spacing:.03em;font-size:clamp(.95rem,1.4vw,1.08rem);padding:.95em 1.5em;border-radius:15px;box-shadow:0 8px 22px rgba(17,123,131,.28)}
+.play .tri{width:0;height:0;border-left:.72em solid #fff;border-top:.46em solid transparent;border-bottom:.46em solid transparent}
+.play:hover{background:var(--teal-dk)}
+.free{margin-top:14px;color:var(--body);font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+
+/* A real screenshot in a white phone. The captures are 1080x2400, so the
+   screen is 9:20; the image's width/height attributes keep that ratio
+   before it loads. */
+.phone{background:#fff;border:1px solid var(--line);border-radius:34px;padding:9px;box-shadow:0 28px 70px rgba(7,70,75,.18)}
+.phone img{width:100%;border-radius:25px;background:#F3F9FA}
+
+/* hero art: the phone */
+.hero-art{position:relative;justify-self:center;width:min(300px,100%)}
+.hero-art::before{content:"";position:absolute;inset:-16% -22%;background:radial-gradient(closest-side,rgba(133,206,211,.5),rgba(223,243,244,0) 74%);z-index:-1;pointer-events:none}
+.r1{background:#E0E0E0;color:#757575}
+.r2{background:#B2DFDB;color:#00695C}
+.r3{background:#4DB6AC;color:#E0F2F1}
+.r4{background:#00897B;color:#B2DFDB}
+.r5{background:#004D40;color:#CBDAD8}
+/* floating chips */
+.fcard{position:absolute;display:flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:9px 12px;font-size:11.5px;font-weight:600;color:var(--ink);box-shadow:0 10px 26px rgba(7,70,75,.14);max-width:200px}
+.fcard .ic{width:16px;height:16px;flex:none}
+.f-qotd{left:-18%;bottom:3%;color:var(--ink)}
+.f-qotd .ic{color:var(--prod)}
+.f-frozen{right:-19%;top:71%}
+.f-frozen .ic{color:var(--teal)}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(44px,6.5vw,96px)}
+.kick{display:flex;align-items:center;gap:.8em;margin-bottom:14px}
+.knum{font-weight:800;font-size:.82rem;padding:.35em .8em;border-radius:999px;background:var(--mist);color:var(--teal);letter-spacing:.08em}
+.klab{font-weight:800;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+.kick .petals{margin-left:auto}
+.k-diet .knum,.k-diet .klab{color:var(--diet)} .k-diet .knum{background:#E3F1E4}
+.k-energy .knum,.k-energy .klab{color:var(--energy)} .k-energy .knum{background:#FBEADF}
+.k-prod .knum,.k-prod .klab{color:var(--prod)} .k-prod .knum{background:#EFE4F5}
+section h2{font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.lead{margin-top:.7em;color:var(--body);font-size:clamp(1rem,1.5vw,1.15rem);max-width:62ch}
+.sechead{margin-bottom:clamp(26px,4vw,48px)}
+
+/* cards */
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 4px 18px rgba(7,70,75,.06)}
+
+/* ---------- method steps ---------- */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,34px)}
+.step .art{aspect-ratio:5/3;border-radius:16px;background:var(--mist-soft);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:16px;overflow:hidden}
+.step .num{color:var(--teal);font-weight:800;font-size:.8rem;letter-spacing:.16em}
+.step h3{font-weight:800;font-size:clamp(1.1rem,1.9vw,1.35rem);margin-top:.25em;letter-spacing:-.01em}
+.step p{color:var(--body);font-size:clamp(.95rem,1.4vw,1.03rem);margin-top:.35em;max-width:34ch}
+.mini-rate{display:flex;gap:7px}
+.mini-rate b{width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
+.mini-rate .ic{width:17px;height:17px}
+.mini-rate .sel{transform:scale(1.12);border:2px solid var(--teal);box-shadow:0 0 9px rgba(0,137,123,.45)}
+.mini-month{display:grid;grid-template-columns:repeat(7,16px);gap:4px}
+.mini-month i{width:16px;height:16px;border-radius:5px;display:grid;place-items:center}
+.mini-month .ic{width:9px;height:9px}
+.mini-month .mm-e{background:#fff;border:1px solid var(--line)}
+.mini-month .mm-f{background:rgba(17,123,131,.12);color:var(--teal)}
+
+/* ---------- areas ---------- */
+.areas-flex{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.arealogo{width:clamp(110px,13vw,160px);border-radius:22%;box-shadow:0 12px 34px rgba(7,70,75,.16)}
+.areas{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.8vw,20px)}
+.area{padding:16px 14px 15px;border-radius:16px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--c);box-shadow:0 4px 18px rgba(7,70,75,.06)}
+.area .achip{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:var(--c);background:var(--tint,#F2FAFA)}
+.area .achip .ic{width:21px;height:21px}
+.area h3{font-size:1.02rem;font-weight:800;margin-top:10px;letter-spacing:-.01em}
+.area .scale{display:flex;gap:4px;margin-top:9px}
+.area .scale i{flex:1;height:13px;border-radius:5px}
+.area p{margin-top:8px;color:var(--body);font-size:.82rem}
+.areanote{margin-top:clamp(18px,2.6vw,26px);color:var(--body);font-size:clamp(.95rem,1.4vw,1.05rem);max-width:62ch}
+
+/* ---------- a row of phones ---------- */
+/* Five across on a wide screen; on a narrow one the row scrolls sideways
+   and snaps to each phone. */
+.shots{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:clamp(14px,2vw,24px);margin-top:clamp(26px,4vw,44px);padding:6px 2px 22px}
+.shots .phone{border-radius:24px;padding:7px;box-shadow:0 16px 40px rgba(7,70,75,.14)}
+.shots .phone img{border-radius:17px}
+.shots figcaption{margin-top:14px;text-align:center;padding-inline:4px}
+.shots figcaption b{display:block;font-size:.98rem;letter-spacing:-.01em;color:var(--c,var(--ink))}
+.shots figcaption span{display:block;color:var(--body);font-size:.85rem;margin-top:2px}
+.shots.two{grid-auto-columns:minmax(0,260px);justify-content:center;gap:clamp(20px,5vw,64px)}
+
+/* ---------- streak band ---------- */
+.band{border-radius:24px;background:linear-gradient(135deg,#E5F5F5,#FFFFFF 62%);border:1px solid var(--line);padding:clamp(24px,4vw,48px);margin-bottom:clamp(24px,3.6vw,44px)}
+.band h3{font-size:clamp(1.35rem,2.8vw,2rem);font-weight:800;letter-spacing:-.015em}
+.band>p{color:var(--body);margin-top:.55em;font-size:clamp(.95rem,1.4vw,1.08rem);max-width:58ch}
+.ramp-wrap{margin-top:clamp(26px,4vw,40px);padding-top:42px;position:relative}
+.ramp{height:14px;border-radius:999px;background:linear-gradient(90deg,#FFC107 0%,#FF9800 9%,#F44336 18%,#9C27B0 36%,#2196F3 73%,#00BCD4 100%)}
+.rmark{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:1px}
+.rmark .ic{width:17px;height:17px}
+.rmark span{font-size:.72rem;font-weight:700;color:var(--body);white-space:nowrap}
+.rmark:first-of-type{transform:none}
+.rmark:last-of-type{transform:translateX(-100%)}
+.ramp-cap{margin-top:12px;color:var(--body);font-size:.88rem}
+
+/* ---------- feature tiles ---------- */
+.tiles{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.2vw,22px)}
+.tiles li{padding:18px 16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 4px 18px rgba(7,70,75,.06)}
+.tiles .tchip{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff}
+.tiles .tchip .ic{width:21px;height:21px}
+.t-teal{background:var(--teal)} .t-energy{background:var(--energy)} .t-prod{background:var(--prod)} .t-rel{background:var(--rel)} .t-diet{background:var(--diet)}
+.tiles h3{font-weight:800;font-size:1.02rem;margin-top:12px;letter-spacing:-.01em}
+.tiles p{color:var(--body);font-size:.9rem;margin-top:.35em}
+@media (prefers-reduced-motion:no-preference){
+  .tiles li,.area,.chart{transition:transform .18s ease}
+  .tiles li:hover,.area:hover,.chart:hover{transform:translateY(-4px)}
+}
+
+/* ---------- details ---------- */
+details{border:1px solid var(--line);border-radius:16px;margin-top:clamp(22px,3.4vw,38px);background:#fff;box-shadow:0 4px 18px rgba(7,70,75,.05)}
+details summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.7em;font-weight:800;letter-spacing:.01em;font-size:.98rem;padding:1em 1.2em;color:var(--ink)}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+" / "";font-weight:800;font-size:1.25em;line-height:1;width:1.1em;height:1.1em;display:grid;place-items:center;border-radius:8px;background:var(--mist);color:var(--teal);flex:none}
+details[open] summary::before{content:"\2212" / ""}
+details .dbody{padding:0 1.25em 1.25em 3.2em;color:var(--body);font-size:.97rem;max-width:72ch}
+details .dbody p+p{margin-top:.7em}
+
+/* ---------- charts ---------- */
+/* Each figure is a chart card cropped from an app screenshot. */
+.charts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.2vw,22px);align-items:start}
+.chart{margin:0;padding:10px;border-radius:18px;background:#fff;border:1px solid var(--line);box-shadow:0 4px 18px rgba(7,70,75,.06)}
+.chart img{width:100%;border-radius:12px}
+.chart figcaption{margin-top:12px;padding:0 6px 4px}
+.chart figcaption b{display:block;font-size:.98rem;letter-spacing:-.01em}
+.chart figcaption span{display:block;color:var(--body);font-size:.85rem;margin-top:2px}
+.chips{margin-top:clamp(20px,3vw,30px);display:flex;flex-wrap:wrap;gap:10px}
+.chips span{display:inline-flex;align-items:center;gap:.5em;border:1px solid var(--line);background:#fff;border-radius:999px;padding:.5em 1em;font-size:.86rem;font-weight:700;color:var(--body)}
+.chips .ic{width:15px;height:15px;color:var(--teal)}
+
+/* ---------- plus band ---------- */
+.plus{display:flex;gap:16px;align-items:flex-start;border:1px solid #F3DFAE;border-radius:18px;background:linear-gradient(135deg,#FFF8E7,#FFFFFF 70%);padding:clamp(18px,2.6vw,26px);color:var(--body);font-size:.98rem}
+.plus .pchip{flex:none;width:42px;height:42px;border-radius:13px;background:var(--amber);display:grid;place-items:center;color:#fff;box-shadow:0 6px 16px rgba(255,179,0,.35)}
+.plus .pchip .ic{width:22px;height:22px}
+.plus b{color:var(--ink);font-weight:800}
+.plus .pname{font-size:1.05rem}
+.plus .pname em{font-style:normal;color:#B37D00}
+
+/* ---------- cta ---------- */
+.cta{text-align:left}
+.cta h2{font-size:clamp(2.4rem,7.5vw,5.6rem);font-weight:800;line-height:1;letter-spacing:-.03em;text-wrap:balance}
+.cta h2 .hollow{color:var(--teal)}
+@supports ((-webkit-text-stroke:2px #117B83)){
+  .cta h2 .hollow{color:transparent;-webkit-text-stroke:clamp(1.3px,.22vw,2.3px) var(--teal)}
+}
+/* A centred stroke over a transparent fill draws both edges of every stem, so
+   the inner edges meet and cross inside letters whose parts join -- the F bar,
+   the a/d/o bowls, the y tail. That tangle is what showed on Android Chrome.
+   Painting the stroke first and filling the glyph on top hides the inner half,
+   leaving one clean outline per letter; the width doubles because only the
+   outer half now shows. The fill is a literal #fff, not a background variable:
+   the body gradient has already resolved to solid #FFFFFF well before this
+   section (it lands at 640px, the CTA sits near 5700px). Keep them in step if
+   the CTA ever moves up the page or the gradient grows. */
+@supports ((-webkit-text-stroke:2px #117B83) and (paint-order:stroke)){
+  .cta h2 .hollow{color:#fff;-webkit-text-stroke:clamp(2.6px,.44vw,4.6px) var(--teal);paint-order:stroke fill}
+}
+.cta .petals{margin-top:clamp(16px,2.4vw,26px)}
+.cta .play{margin-top:clamp(20px,3vw,34px)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding-block:clamp(26px,3.8vw,44px);margin-top:clamp(28px,4.5vw,60px);background:var(--mist-soft)}
+footer .frow{display:flex;flex-wrap:wrap;align-items:center;gap:16px clamp(18px,3vw,34px)}
+footer img{width:32px;height:auto;border-radius:24%}
+footer a{color:var(--body);text-decoration:none;font-size:.92rem;display:inline-block;padding-block:.5em}
+footer a:hover{color:var(--ink);text-decoration:underline}
+footer .copy{margin-left:auto;color:var(--body);font-size:.92rem}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;padding-block:clamp(24px,5vw,52px)}
+  .hero-art{margin-top:10px}
+  .f-qotd{left:-9%}
+  .f-frozen{right:-9%}
+  .steps{grid-template-columns:1fr;gap:20px}
+  .step{display:grid;grid-template-columns:128px 1fr;gap:16px;align-items:center}
+  .step .art{aspect-ratio:1;margin-bottom:0;padding:6px}
+  .mini-rate b{width:20px;height:20px;border-radius:7px}
+  .mini-rate{gap:4px}
+  .mini-rate .ic{width:13px;height:13px}
+  .mini-month{grid-template-columns:repeat(7,11px);gap:3px}
+  .mini-month i{width:11px;height:11px;border-radius:4px}
+  .step .mini-trend{width:88px}
+  .areas-flex{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .areas{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));width:100%}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .charts{grid-template-columns:1fr;max-width:460px;margin-inline:auto}
+  .kick .petals{display:none}
+  /* The row of five becomes a sideways scroller that bleeds to the screen
+     edges, with the first and last phone still lined up with the text. */
+  .shots{grid-auto-columns:min(44vw,220px);overflow-x:auto;scroll-snap-type:x mandatory;
+    margin-inline:calc(-1 * clamp(20px,5vw,48px));padding-inline:clamp(20px,5vw,48px);
+    scroll-padding-inline:clamp(20px,5vw,48px);scrollbar-width:thin}
+  .shots li{scroll-snap-align:start}
+  .shots.two{grid-auto-columns:min(42vw,240px);overflow-x:visible;margin-inline:0;padding-inline:0}
+}
+@media (max-width:440px){
+  .top .toplink{display:none}
+  .tiles{grid-template-columns:1fr}
+  .fcard{display:none}
+  .shots{grid-auto-columns:58vw}
+  .shots.two{grid-auto-columns:minmax(0,1fr);gap:14px}
+}
