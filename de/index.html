@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vivevo – wie geht’s dir?</title>
+<meta name="description" content="vivevo ist ein Stimmungstagebuch mit einem Fingertipp am Tag – für Stimmung, Energie, Produktivität, Ernährung und Beziehung. Fünf Sekunden Ehrlichkeit am Tag, ein Streak, der verzeiht, und Muster, die du wirklich siehst. Kostenlos für Android.">
+<meta name="theme-color" content="#117B83">
+<meta property="og:title" content="vivevo – wie geht’s dir?">
+<meta property="og:description" content="Ein Fingertipp am Tag für die fünf Bereiche, die deinen Alltag prägen. Fünf Sekunden Ehrlichkeit, einmal am Tag.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vivevo.net/de/">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://vivevo.net/og-de.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../vivevo.svg">
+<link rel="canonical" href="https://vivevo.net/de/">
+<link rel="alternate" hreflang="en" href="https://vivevo.net/">
+<link rel="alternate" hreflang="de" href="https://vivevo.net/de/">
+<link rel="alternate" hreflang="x-default" href="https://vivevo.net/">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-rain" viewBox="0 0 24 24"><path fill="currentColor" d="M7.2 14.9a4.2 4.2 0 0 1 .5-8.36A5.3 5.3 0 0 1 17.9 8a3.65 3.65 0 0 1-.6 6.9z"/><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"><path d="M9.1 17.4l-.85 2.3"/><path d="M13.6 17.4l-.85 2.3"/></g></symbol>
+<symbol id="i-sad" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="9.1" cy="10.3" r="1.2" fill="currentColor"/><circle cx="14.9" cy="10.3" r="1.2" fill="currentColor"/><path d="M8.7 16.5c2-2.4 4.6-2.4 6.6 0" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+<symbol id="i-meh" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="9.1" cy="10.3" r="1.2" fill="currentColor"/><circle cx="14.9" cy="10.3" r="1.2" fill="currentColor"/><path d="M8.8 15.7h6.4" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+<symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="9.1" cy="10.3" r="1.2" fill="currentColor"/><circle cx="14.9" cy="10.3" r="1.2" fill="currentColor"/><path d="M8.7 14.4c2 2.4 4.6 2.4 6.6 0" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+<symbol id="i-confetti" viewBox="0 0 24 24"><path fill="currentColor" d="M3.6 20.9 8.5 7.2l8.3 8.3z"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"><path d="M14.6 5.5l.5-2.4"/><path d="M18.4 9.4l2.4-.5"/><path d="M16.8 4.9l1.9-1.9"/></g><circle cx="21" cy="13.4" r="1.1" fill="currentColor"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.3c.9 4-4 5.7-4 10a5 5 0 0 0 10 0c0-2.1-1-3.9-2.2-5.3-.3 1.1-1 2-2 2.4 0-2.7-.3-5.2-1.8-7.1z"/></symbol>
+<symbol id="i-snow" viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 2.9v18.2"/><path d="M4.1 7.4l15.8 9.2"/><path d="M19.9 7.4L4.1 16.6"/></g></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.2 2 5.6 13.4h4.5L9.8 22l8.6-11.9h-4.8z"/></symbol>
+<symbol id="i-trend" viewBox="0 0 24 24"><path fill="currentColor" d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></symbol>
+<symbol id="i-food" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.6l5 5L19.5 7.2" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M3.5 6.2l1.6 1.6 3-3"/><path d="M3.5 12.7l1.6 1.6 3-3"/><path d="M3.5 19.2l1.6 1.6 3-3"/><path d="M11.5 6.6H21"/><path d="M11.5 13.1H21"/><path d="M11.5 19.6H21"/></g></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path fill="currentColor" d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5a6 6 0 0 0-5-5.91V4a1 1 0 1 0-2 0v1.09A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z"/></symbol>
+<symbol id="i-bulb" viewBox="0 0 24 24"><path fill="currentColor" d="M9.3 21h5.4v-1.6H9.3zM12 2a7 7 0 0 0-4 12.74c.63.44 1 1.16 1 1.93v.33h6v-.33c0-.77.37-1.49 1-1.93A7 7 0 0 0 12 2z"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2-5.6-3.2-5.6 3.2 1.3-6.2L3 9.1l6.3-.7z"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path fill="currentColor" d="M19 9.5h-4v-6H9v6H5l7 7zM5 18.5v2h14v-2z"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-3.3 0-8 1.7-8 5v1.5h16V19c0-3.3-4.7-5-8-5z"/></symbol>
+<symbol id="i-cloudsync" viewBox="0 0 24 24"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4 7.49 7.49 0 0 0 5.35 8.04 5.994 5.994 0 0 0 6 20h13a5 5 0 0 0 .35-9.96z"/></symbol>
+</defs></svg>
+
+<header class="wrap top">
+  <img src="../vivevo.svg" alt="" width="46" height="46">
+  <span class="name">vivevo</span>
+  <a class="lang" href="../index.html" hreflang="en" lang="en">English</a>
+  <a class="toplink" href="https://play.google.com/store/apps/details?id=io.a51.vivevo&amp;hl=de">Google&nbsp;Play</a>
+</header>
+
+<main>
+
+  <section class="wrap hero" aria-label="Einleitung">
+    <div>
+      <h1>Wie <em>geht’s</em> dir?</h1>
+      <span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <p class="tag">vivevo ist dein Stimmungstagebuch mit einem Fingertipp am Tag – für die fünf Bereiche, die deinen Alltag prägen:
+        <b class="w-mood">Stimmung</b>, <b class="w-energy">Energie</b>, <b class="w-prod">Produktivität</b>,
+        <b class="w-diet">Ernährung</b> und <b class="w-rel">Beziehung</b>.</p>
+      <p class="pitch">Fünf Sekunden Ehrlichkeit am Tag.</p>
+      <a class="play" href="https://play.google.com/store/apps/details?id=io.a51.vivevo&amp;hl=de"><span class="tri" aria-hidden="true"></span>Jetzt bei Google&nbsp;Play</a>
+      <p class="free">Kostenlos &middot; Android &middot; Keine Werbung &middot; Deutsch &amp; English</p>
+    </div>
+
+    <figure class="hero-art">
+      <div class="phone">
+        <img src="../shots/de/home_mood.webp" width="600" height="1333" fetchpriority="high"
+          alt="Der Startbildschirm von vivevo: die Frage „Wie fühlst du dich heute?“ über fünf Bewertungskacheln von der Regenwolke bis zum Konfetti, die heutige Notiz „Sonniger Spaziergang am See“ und ein September-Kalender aus farbigen Tageskacheln unter einem Streak von 129 Tagen.">
+      </div>
+      <span class="fcard f-qotd" aria-hidden="true"><svg class="ic"><use href="#i-bulb"/></svg>„Was hat dich heute zum Lächeln gebracht?“</span>
+      <span class="fcard f-frozen" aria-hidden="true"><svg class="ic"><use href="#i-snow"/></svg>Verpasster Tag überbrückt – Streak gerettet</span>
+    </figure>
+  </section>
+
+  <section class="wrap" aria-labelledby="k-method">
+    <div class="sechead">
+      <div class="kick"><span class="knum">01</span><span class="klab" id="k-method">Die Methode</span><span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <h2>Ein ehrlicher Fingertipp am Tag.</h2>
+      <p class="lead">Keine Zahlen eintippen, keine Aufsätze schreiben. Du wählst das Bild, das zu deinem Tag passt – und fertig.</p>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <div class="art" aria-hidden="true">
+          <div class="mini-rate">
+            <b class="r1"><svg class="ic"><use href="#i-rain"/></svg></b>
+            <b class="r2"><svg class="ic"><use href="#i-sad"/></svg></b>
+            <b class="r3"><svg class="ic"><use href="#i-meh"/></svg></b>
+            <b class="r4 sel"><svg class="ic"><use href="#i-smile"/></svg></b>
+            <b class="r5"><svg class="ic"><use href="#i-confetti"/></svg></b>
+          </div>
+        </div>
+        <div>
+          <span class="num">SCHRITT 1</span>
+          <h3>Eine Frage beantworten</h3>
+          <p>Wie war dein Tag? Tippe auf eins von fünf Bildern. Dazu eine kurze Notiz, wenn der Tag es verdient.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="art" aria-hidden="true">
+          <div class="mini-month">
+            <i class="r3"></i><i class="r4"></i><i class="r4"></i><i class="r2"></i><i class="r5"></i><i class="r4"></i><i class="r5"></i>
+            <i class="r4"></i><i class="mm-f"><svg class="ic"><use href="#i-snow"/></svg></i><i class="r3"></i><i class="r4"></i><i class="r5"></i><i class="r4"></i><i class="r4"></i>
+            <i class="r5"></i><i class="r4"></i><i class="r3"></i><i class="r4"></i><i class="r5"></i><i class="mm-e"></i><i class="mm-e"></i>
+          </div>
+        </div>
+        <div>
+          <span class="num">SCHRITT 2</span>
+          <h3>Sieh zu, wie sich der Monat füllt</h3>
+          <p>Jeder Tag wird zu einer farbigen Kachel. Streaks wachsen – und verzeihen auch mal einen verpassten Tag.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="art" aria-hidden="true">
+          <svg class="mini-trend" width="130" height="70" viewBox="0 0 130 70">
+            <path d="M8 46 C22 38,30 26,44 28 C58 30,62 48,76 46 C90 44,98 22,112 18" fill="none" stroke="#117B83" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="112" cy="18" r="4" fill="#117B83" stroke="#fff" stroke-width="2"/>
+          </svg>
+        </div>
+        <div>
+          <span class="num">SCHRITT 3</span>
+          <h3>Erkenne die Muster</h3>
+          <p>Ein paar Wochen später ist das Bild da: was deine Tage hebt und was sie auslaugt.</p>
+        </div>
+      </li>
+    </ol>
+    <details>
+      <summary>Warum nur ein Fingertipp?</summary>
+      <div class="dbody">
+        <p>Weil die Gewohnheit das Schwierige ist. Ein Check-in von fünf Sekunden übersteht volle Wochen, Krankheitstage und Urlaub – und eine ehrliche Bewertung jeden Tag ist mehr wert als ein ausführlicher Eintrag einmal im Monat. Muster zeigen sich erst, wenn die Daten weiter kommen.</p>
+        <p>Wenn du mehr zu sagen hast, gibt es eine Notiz. Wenn nicht, ist ein Fingertipp ein vollständiger Eintrag.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="wrap" aria-labelledby="k-areas">
+    <div class="sechead">
+      <div class="kick k-diet"><span class="knum">02</span><span class="klab" id="k-areas">Fünf Bereiche</span><span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <h2>Fünf Blütenblätter, fünf Bereiche.</h2>
+      <p class="lead">Schau dir das Logo genau an: Seine fünf Blütenblätter sind die fünf Dinge, die vivevo erfasst. Jeder Bereich hat seine eigene fünfstufige Skala – in Bildern statt in Zahlen.</p>
+    </div>
+    <div class="areas-flex">
+      <img class="arealogo" src="../vivevo.svg" alt="Das vivevo-Logo: eine stilisierte Pflanze, deren fünf Blütenblätter die fünf Farben der Bereiche tragen.">
+      <ul class="areas">
+        <li class="area" style="--c:#117B83;--tint:#E5F1F2">
+          <span class="achip" aria-hidden="true"><svg class="ic"><use href="#i-smile"/></svg></span>
+          <h3>Stimmung</h3>
+          <div class="scale" aria-hidden="true"><i style="background:#E0E0E0"></i><i style="background:#B2DFDB"></i><i style="background:#4DB6AC"></i><i style="background:#00897B"></i><i style="background:#004D40"></i></div>
+          <p>Regenwolke → Konfetti</p>
+        </li>
+        <li class="area" style="--c:#E65100;--tint:#FCEDE2">
+          <span class="achip" aria-hidden="true"><svg class="ic"><use href="#i-bolt"/></svg></span>
+          <h3>Energie</h3>
+          <div class="scale" aria-hidden="true"><i style="background:#E1E2E6"></i><i style="background:#FFE0B2"></i><i style="background:#FFB74D"></i><i style="background:#FF8F00"></i><i style="background:#9E3500"></i></div>
+          <p>leerer Akku → Aufladen</p>
+        </li>
+        <li class="area" style="--c:#6A1B9A;--tint:#F0E6F5">
+          <span class="achip" aria-hidden="true"><svg class="ic"><use href="#i-trend"/></svg></span>
+          <h3>Produktivität</h3>
+          <div class="scale" aria-hidden="true"><i style="background:#E0E0E0"></i><i style="background:#D1C4E9"></i><i style="background:#BA68C8"></i><i style="background:#8E24AA"></i><i style="background:#4A148C"></i></div>
+          <p>Pause → Raketenstart</p>
+        </li>
+        <li class="area" style="--c:#2E7D32;--tint:#E8F2E8">
+          <span class="achip" aria-hidden="true"><svg class="ic"><use href="#i-food"/></svg></span>
+          <h3>Ernährung</h3>
+          <div class="scale" aria-hidden="true"><i style="background:#EF5350"></i><i style="background:#FFB74D"></i><i style="background:#FFEB3B"></i><i style="background:#9CCC65"></i><i style="background:#4CAF50"></i></div>
+          <p>Kuchen → Karotte</p>
+        </li>
+        <li class="area" style="--c:#C2185B;--tint:#F9E7EE">
+          <span class="achip" aria-hidden="true"><svg class="ic"><use href="#i-heart"/></svg></span>
+          <h3>Beziehung</h3>
+          <div class="scale" aria-hidden="true"><i style="background:#BDBDBD"></i><i style="background:#F5E1E9"></i><i style="background:#F48FB1"></i><i style="background:#EC407A"></i><i style="background:#C2185B"></i></div>
+          <p>gebrochenes Herz → ganzes Herz</p>
+        </li>
+      </ul>
+    </div>
+    <ul class="shots" aria-label="Der Startbildschirm in den Farben jedes Bereichs">
+      <li><figure style="--c:#117B83"><div class="phone"><img src="../shots/de/home_mood.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Stimmung: ein türkisfarbener Kalender voller Lächeln und Konfetti, mit einem Streak von 129 Tagen."></div><figcaption><b>Stimmung</b></figcaption></figure></li>
+      <li><figure style="--c:#E65100"><div class="phone"><img src="../shots/de/home_energy.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Energie: ein orangefarbener Kalender aus Akkuständen, ein Tag von einer Streak-Einfrierung überbrückt."></div><figcaption><b>Energie</b></figcaption></figure></li>
+      <li><figure style="--c:#6A1B9A"><div class="phone"><img src="../shots/de/home_productivity.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Produktivität: ein lilafarbener Kalender von Pause bis Raketenstart."></div><figcaption><b>Produktivität</b></figcaption></figure></li>
+      <li><figure style="--c:#2E7D32"><div class="phone"><img src="../shots/de/home_diet.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Ernährung: ein Kalender in Rot, Gelb und Grün, vom Kuchen bis zur Karotte."></div><figcaption><b>Ernährung</b></figcaption></figure></li>
+      <li><figure style="--c:#C2185B"><div class="phone"><img src="../shots/de/home_relationship.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Beziehung: ein rosafarbener Kalender voller Herzen, mit einem Streak von 183 Tagen."></div><figcaption><b>Beziehung</b></figcaption></figure></li>
+    </ul>
+    <p class="areanote">Tracke einen Bereich oder alle fünf – jeder hat seinen eigenen Streak, Kalender und eigene Diagramme, und die ganze App nimmt die Farbe des Bereichs an, in dem du gerade bist.</p>
+  </section>
+
+  <section class="wrap" aria-labelledby="k-streak">
+    <div class="sechead">
+      <div class="kick k-energy"><span class="knum">03</span><span class="klab" id="k-streak">Dranbleiben</span><span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <h2>Ein Streak, der verzeiht.</h2>
+      <p class="lead">Beständigkeit soll ermutigen, nicht zerbrechlich wirken. vivevo ist dafür gebaut, dich bei der Stange zu halten – sanft.</p>
+    </div>
+    <div class="band">
+      <h3>Die Flamme verändert sich immer weiter.</h3>
+      <p>Die meisten Streak-Zähler sind nur eine Zahl. Die Flamme von vivevo wechselt fünfhundert Tage lang ihre Farbe – und beginnt ab Tag 30 zu leuchten.</p>
+      <div class="ramp-wrap" role="img" aria-label="Die Farbreise der Streak-Flamme: Gelb an Tag 1, Rot an Tag 90, Lila an Tag 180, Blau an Tag 365, Cyan ab Tag 500.">
+        <span class="rmark" style="left:0" aria-hidden="true"><svg class="ic" style="color:#FFC107"><use href="#i-flame"/></svg><span>Tag 1</span></span>
+        <span class="rmark" style="left:18%" aria-hidden="true"><svg class="ic" style="color:#F44336"><use href="#i-flame"/></svg><span>90</span></span>
+        <span class="rmark" style="left:36%" aria-hidden="true"><svg class="ic" style="color:#9C27B0"><use href="#i-flame"/></svg><span>180</span></span>
+        <span class="rmark" style="left:73%" aria-hidden="true"><svg class="ic" style="color:#2196F3"><use href="#i-flame"/></svg><span>365</span></span>
+        <span class="rmark" style="left:100%" aria-hidden="true"><svg class="ic" style="color:#00BCD4"><use href="#i-flame"/></svg><span>500+</span></span>
+        <div class="ramp"></div>
+      </div>
+      <p class="ramp-cap">Und ein Tag, den du noch nicht bewertet hast, bricht den Streak nie – der Tag darf erst zu Ende gehen.</p>
+    </div>
+    <ul class="tiles">
+      <li>
+        <span class="tchip t-teal" aria-hidden="true"><svg class="ic"><use href="#i-snow"/></svg></span>
+        <h3>Automatische Streak-Einfrierungen</h3>
+        <p>Verpasst du einen Tag, setzt vivevo eine Einfrierung für dich ein – ohne Knopfdruck. Jeden Monat gibt es neue.</p>
+      </li>
+      <li>
+        <span class="tchip t-energy" aria-hidden="true"><svg class="ic"><use href="#i-bell"/></svg></span>
+        <h3>Erinnerungen mit Anstand</h3>
+        <p>Ein Stupser am Tag, nur wenn du noch nicht eingecheckt hast – und er bleibt leise dran, wenn du mal abdriftest.</p>
+      </li>
+      <li>
+        <span class="tchip t-prod" aria-hidden="true"><svg class="ic"><use href="#i-bulb"/></svg></span>
+        <h3>Frage des Tages</h3>
+        <p>Ein kleiner Denkanstoß, der die Uhrzeit kennt: Aus „Was <em>wird</em> dich heute zum Lächeln bringen?“ wird am Abend „Was <em>hat</em> dich heute zum Lächeln gebracht?“.</p>
+      </li>
+      <li>
+        <span class="tchip t-rel" aria-hidden="true"><svg class="ic"><use href="#i-list"/></svg></span>
+        <h3>Schneller Check-in</h3>
+        <p>Alle fünf Bereiche auf einem Bildschirm – direkt aus der Erinnerung heraus.</p>
+      </li>
+    </ul>
+    <ul class="shots two" aria-label="Zwei weitere Bildschirme">
+      <li><figure><div class="phone"><img src="../shots/de/checkin.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Schneller Check-in für Sonntag, 27. September 2026: Stimmung, Energie und Produktivität bewertet, mit Notizen wie „Sonniger Spaziergang am See“."></div>
+        <figcaption><b>Schneller Check-in</b><span>Alle Bereiche, die du trackst, auf einem Bildschirm.</span></figcaption></figure></li>
+      <li><figure><div class="phone"><img src="../shots/de/question.webp" width="600" height="1333" loading="lazy" decoding="async"
+        alt="Die Frage des Tages, „Was hat dich heute zum Lächeln gebracht?“, über dem Startbildschirm."></div>
+        <figcaption><b>Frage des Tages</b><span>Passend zur Tageszeit formuliert.</span></figcaption></figure></li>
+    </ul>
+  </section>
+
+  <section class="wrap" aria-labelledby="k-insight">
+    <div class="sechead">
+      <div class="kick k-prod"><span class="knum">04</span><span class="klab" id="k-insight">Der Lohn</span><span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div>
+      <h2>Muster, die du wirklich siehst.</h2>
+      <p class="lead">Sechs Diagramme, jeder Zeitraum, eine Frage: Was bewegt deine Tage wirklich?</p>
+    </div>
+    <div class="charts">
+      <figure class="chart">
+        <img src="../shots/de/chart_trend.webp" width="800" height="578" loading="lazy" decoding="async"
+          alt="Die Karte Trend: der 7-Tage-Durchschnitt der Stimmungsbewertungen von Juni 2025 bis September 2026, über den fünf Farben der Stimmung.">
+        <figcaption><b>Trend</b><span>Der 7-Tage-Durchschnitt deiner Bewertungen – Lücken werden gepunktet, nicht geschönt.</span></figcaption>
+      </figure>
+      <figure class="chart">
+        <img src="../shots/de/chart_weekday.webp" width="800" height="578" loading="lazy" decoding="async"
+          alt="Die Karte Wochentagsdurchschnitt: ein Balken pro Wochentag, von Montag ansteigend bis zum Hoch am Samstag.">
+        <figcaption><b>Wochentagsdurchschnitt</b><span>Welcher Wochentag dir am besten tut.</span></figcaption>
+      </figure>
+      <figure class="chart">
+        <img src="../shots/de/chart_heatmap.webp" width="800" height="816" loading="lazy" decoding="async"
+          alt="Die Karte Typischer Monat: eine Heatmap der Durchschnittsbewertungen, fünf Wochenzeilen mal sieben Wochentagsspalten.">
+        <figcaption><b>Typischer Monat</b><span>Alle deine Monate übereinandergelegt – der Rhythmus, der in einem Monat steckt.</span></figcaption>
+      </figure>
+    </div>
+    <div class="chips" aria-label="Mehr über deine Daten">
+      <span><svg class="ic"><use href="#i-user"/></svg>Funktioniert ohne Konto</span>
+      <span><svg class="ic"><use href="#i-cloudsync"/></svg>Google-Anmeldung synchronisiert deine Geräte</span>
+      <span><svg class="ic"><use href="#i-download"/></svg>CSV-Export</span>
+      <span><svg class="ic"><use href="#i-check"/></svg>Keine Werbung, niemals</span>
+    </div>
+    <details>
+      <summary>Deine Daten, deine Regeln</summary>
+      <div class="dbody">
+        <p>vivevo funktioniert vollständig als Gast – alles bleibt auf deinem Gerät, Streaks und Einfrierungen inklusive. Melde dich mit Google an, und deine Einträge werden gesichert und live zwischen deinen Geräten synchronisiert; was du offline änderst, wird gesammelt und sicher zusammengeführt.</p>
+        <p>Deine Daten bleiben deine: Exportiere alles als CSV oder lösche dein Konto samt allen Daten direkt in der App, jederzeit.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="wrap" aria-label="vivevo plus" style="padding-block:0">
+    <div class="plus">
+      <span class="pchip" aria-hidden="true"><svg class="ic"><use href="#i-star"/></svg></span>
+      <p><b class="pname">vivevo<em>+</em></b> – alle fünf Bereiche gleichzeitig, dein gesamter Verlauf, drei Streak-Einfrierungen pro Monat, längere Notizen und CSV-Export. Monatlich oder jährlich.<br>
+      Die kostenlose App ist keine Demo: jeweils ein Bereich, 28 Tage Verlauf und eine Einfrierung pro Monat – für immer kostenlos.</p>
+    </div>
+  </section>
+
+  <section class="wrap cta" aria-label="Herunterladen">
+    <h2>Wie geht’s dir?<br><span class="hollow">Finde es heraus&nbsp;– jeden&nbsp;Tag.</span></h2>
+    <span class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><br>
+    <a class="play" href="https://play.google.com/store/apps/details?id=io.a51.vivevo&amp;hl=de"><span class="tri" aria-hidden="true"></span>Jetzt bei Google&nbsp;Play</a>
+    <p class="free">Kostenlos &middot; Android &middot; Keine Werbung &middot; Deutsch &amp; English</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <img src="../vivevo.svg" alt="vivevo-Logo" width="32" height="32">
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="datenloeschung.html">Datenlöschung</a>
+    <a href="mailto:hi@vivevo.net">hi@vivevo.net</a>
+    <span class="copy">© <a href="https://a51.io">A51</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
