@@ -35,8 +35,10 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offs
 .top{display:flex;align-items:center;gap:13px;padding-block:clamp(16px,2.5vw,26px)}
 .top img{width:clamp(38px,4vw,46px);height:auto;border-radius:24%}
 .top .name{font-weight:800;font-size:clamp(1.05rem,2vw,1.25rem);letter-spacing:.01em}
-.top .lang{margin-left:auto;color:var(--body);text-decoration:none;font-weight:700;font-size:.9rem;letter-spacing:.04em;border-radius:999px;padding:.55em .95em;white-space:nowrap}
-.top .lang:hover{color:var(--teal);background:#fff}
+.top .langs{margin-left:auto;display:flex;gap:2px}
+.top .langs a{color:var(--body);text-decoration:none;font-weight:700;font-size:.85rem;letter-spacing:.06em;border-radius:999px;padding:.55em .7em;white-space:nowrap}
+.top .langs a:hover{color:var(--teal);background:#fff}
+.top .langs a[aria-current]{color:var(--teal);background:#fff;box-shadow:inset 0 0 0 1.5px var(--line)}
 .top .toplink{color:var(--teal);text-decoration:none;font-weight:700;font-size:.9rem;letter-spacing:.06em;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:.55em 1.15em;white-space:nowrap}
 .top .toplink:hover{border-color:var(--teal);background:var(--mist-soft)}
 
@@ -256,6 +258,7 @@ footer .copy{margin-left:auto;color:var(--body);font-size:.92rem}
 }
 @media (max-width:440px){
   .top .toplink{display:none}
+  .top .langs a{padding:.55em .5em}
   .tiles{grid-template-columns:1fr}
   .fcard{display:none}
   .shots{grid-auto-columns:58vw}
