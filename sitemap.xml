@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vivevo.net/</loc><lastmod>2026-09-27</lastmod></url>
-  <url><loc>https://vivevo.net/de/</loc><lastmod>2026-09-27</lastmod></url>
-  <url><loc>https://vivevo.net/data_deletion.html</loc><lastmod>2026-09-27</lastmod></url>
-  <url><loc>https://vivevo.net/de/datenloeschung.html</loc><lastmod>2026-09-27</lastmod></url>
-  <url><loc>https://vivevo.net/de/datenschutz.html</loc><lastmod>2026-09-27</lastmod></url>
-  <url><loc>https://vivevo.net/privacy.html</loc><lastmod>2026-09-27</lastmod></url>
+  <url><loc>https://vivevo.net/</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vivevo.net/de/</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vivevo.net/fr/</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vivevo.net/es/</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vivevo.net/data_deletion.html</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vivevo.net/de/datenloeschung.html</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vivevo.net/fr/suppression-donnees.html</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vivevo.net/es/eliminacion-datos.html</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vivevo.net/privacy.html</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vivevo.net/de/datenschutz.html</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vivevo.net/fr/confidentialite.html</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vivevo.net/es/privacidad.html</loc><lastmod>2026-10-15</lastmod></url>
 </urlset>
