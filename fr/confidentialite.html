@@ -34,7 +34,7 @@
   <div class="pagehead">
     <p class="kicker">Informations légales</p>
     <h1>Politique de confidentialité</h1>
-    <p class="updated">Dernière mise à jour : 27 juillet 2026</p>
+    <p class="updated">Dernière mise à jour : 18 novembre 2026</p>
     <p class="intro">vivevo est un journal privé. Ce que tu y écris t’appartient.
     Cette page décrit précisément ce qui quitte ton appareil et ce qui n’en sort pas.</p>
   </div>
@@ -47,11 +47,15 @@
     l’application sans te connecter d’abord, ces données disparaissent.</p>
 
     <h2>Ce que nous stockons quand tu te connectes</h2>
-    <p>La connexion est facultative et passe par Google Sign-In. Si tu te
-    connectes, Google nous transmet ton adresse e-mail, ton nom d’affichage et ta
-    photo de profil, et les éléments suivants sont stockés dans ton compte afin de
-    pouvoir être synchronisés entre tes appareils et restaurés si tu changes de
-    téléphone :</p>
+    <p>La connexion est facultative. Tu peux te connecter avec Apple ou avec
+    Google, sur Android comme sur iPhone et iPad. Si tu te connectes avec Apple,
+    Apple nous transmet ton adresse e-mail (ou, si tu utilises « Masquer mon
+    adresse e-mail », une adresse de relais privée à la place) et, uniquement
+    lors de ta première connexion, ton nom. Si tu te connectes avec Google, Google
+    nous transmet ton adresse e-mail, ton nom d’affichage et ta photo de profil.
+    Dans les deux cas, les éléments suivants sont stockés dans ton compte afin de
+    pouvoir être synchronisés entre tes appareils et restaurés si tu changes
+    d’appareil :</p>
     <ul>
       <li>Les évaluations que tu enregistres : une valeur de 1 à 5, par jour et par
       domaine.</li>
@@ -61,7 +65,7 @@
       <li>Les domaines que tu as activés, et les informations sur tes séries.</li>
     </ul>
     <p>Les paramètres des rappels et les heures que tu choisis restent sur ton
-    appareil. Les rappels sont programmés localement par ton téléphone ; nous ne
+    appareil. Les rappels sont programmés localement par ton appareil ; nous ne
     participons pas à leur envoi et nous ne savons pas si tu y donnes suite.</p>
 
     <h2>Ce que nous ne collectons jamais</h2>
@@ -71,6 +75,33 @@
     n’utilisons pas tes entrées pour entraîner quoi que ce soit, et nous ne vendons
     ni ne partageons tes données avec qui que ce soit à des fins publicitaires. Il
     n’y a aucun cookie dans l’application.</p>
+  </section>
+
+  <section class="card">
+    <h2>Widgets, Siri et rappels sur iPhone et iPad</h2>
+    <p>Sur iPhone et iPad, vivevo propose des widgets, Siri et Raccourcis, une
+    commande dans le Centre de contrôle et des boutons d’évaluation dans les
+    rappels. Ce qu’ils affichent (tes évaluations du jour, les séries de tes
+    domaines et de courts textes) reste sur ton appareil, dans un espace partagé
+    uniquement entre l’application et ses widgets. Une évaluation que tu y donnes
+    est enregistrée par l’application à sa prochaine ouverture, exactement comme
+    une évaluation faite dans l’application. vivevo n’envoie rien de tout cela, ni
+    à nous ni à personne d’autre.</p>
+
+    <h2>Apple Santé</h2>
+    <p>Sur iPhone et iPad à partir d’iOS 18, vivevo peut enregistrer
+    l’évaluation quotidienne de ton humeur dans l’app Santé comme humeur du jour
+    (état d’esprit). L’application modifie cette entrée quand tu modifies
+    l’évaluation et la supprime quand tu supprimes l’évaluation. vivevo écrit
+    seulement dans Santé et n’y lit rien. Les données de Santé ne quittent jamais
+    ton appareil par l’intermédiaire de vivevo : elles ne nous sont pas envoyées
+    et ne sont utilisées à aucune autre fin (ni publicité, ni profilage).</p>
+    <div class="note">
+      <p>Cette option est désactivée par défaut. Tu peux l’activer ou la
+      désactiver à tout moment dans <strong>Paramètres &rarr;
+      Confidentialité</strong>. Si tu la désactives, ce que vivevo a enregistré
+      reste dans Santé ; tu peux le supprimer dans l’app Santé.</p>
+    </div>
   </section>
 
   <section class="card">
@@ -99,12 +130,20 @@
 
   <section class="card">
     <h2>Abonnements et codes promo</h2>
-    <p>vivevo+ est facturé par Google Play. Le paiement est entièrement géré par
-    Google : nous ne voyons jamais tes données bancaires. Nous stockons uniquement
-    ce qui est nécessaire pour savoir si ton abonnement est actif : la formule dont
-    il provient, la date à laquelle il doit être vérifié à nouveau, et l’identifiant
-    d’achat que Google nous fournit.</p>
-    <p>Si tu actives un code promo, nous conservons de façon permanente un petit
+    <p>vivevo+ est facturé par Google Play sur Android et par l’App Store sur
+    iPhone et iPad. Le paiement est entièrement géré par Google ou Apple : nous
+    ne voyons jamais tes données bancaires. Nous stockons uniquement ce qui est
+    nécessaire pour savoir si ton vivevo+ est actif : la formule dont il provient,
+    la date à laquelle il doit être vérifié à nouveau, et l’identifiant d’achat que
+    Google ou Apple nous fournit (pour l’App Store, la transaction signée et son
+    identifiant de transaction d’origine).</p>
+    <p>Pour un achat sur l’App Store, nous stockons aussi le compte vivevo auquel
+    il appartient, afin qu’un même achat ne puisse pas débloquer plusieurs comptes.
+    Ce lien est supprimé quand tu supprimes ton compte. Sur iPhone et iPad, tu
+    peux aussi acheter vivevo+ sans compte ; il reste alors sur cet appareil,
+    avec ton compte Apple, jusqu’à ce que tu te connectes.</p>
+    <p>Les codes promo n’existent que dans l’application Android. Si tu en actives
+    un, nous conservons de façon permanente un petit
     enregistrement indiquant que le code a été activé par ton compte, avec le code
     et la date. C’est cet enregistrement qui empêche qu’un code soit utilisé plus
     d’une fois ; il est donc volontairement conservé, même après la suppression du
@@ -114,7 +153,9 @@
     <p>Les données des comptes connectés sont stockées sur Google Firebase : Cloud
     Firestore et Firebase Authentication. Google les traite pour notre compte, en
     tant que prestataire de services. Une copie est aussi mise en cache sur ton
-    appareil pour que l’application fonctionne hors ligne.</p>
+    appareil pour que l’application fonctionne hors ligne. Si tu te connectes avec
+    Apple ou achètes sur l’App Store, Apple gère cette connexion ou ce paiement,
+    comme décrit plus haut.</p>
 
     <h2>Durée de conservation</h2>
     <p>Tes données sont conservées tant que ton compte existe. Des sauvegardes
@@ -127,7 +168,9 @@
     <p>Tu peux supprimer ton compte et ses données depuis l’application, dans
     <strong>Paramètres &rarr; Supprimer le compte</strong>. Cela supprime tes
     entrées et ton compte de connexion, et efface la copie mise en cache sur ton
-    appareil. Tu peux aussi demander la suppression par e-mail : consulte notre
+    appareil. Si tu te connectes avec Apple, la suppression demande aussi à Apple
+    de révoquer l’accès de vivevo à ta connexion avec Apple. Tu peux aussi
+    demander la suppression par e-mail : consulte notre
     <a href="suppression-donnees.html">Politique de suppression des données</a>.
     L’enregistrement d’activation de code promo décrit plus haut est la seule chose
     conservée.</p>
